@@ -12,7 +12,7 @@
     /**
      * Function to calculate the roots and print them on screen.
      */
-    static function calc(){
+    function calc(){
         /**
          * getting user input using Utility class
          */
@@ -21,9 +21,14 @@
         $a = utility::getInt();
         $b = utility::getInt();
         $c = utility::getInt();
-        utility::root(a,b,c);
-    }
-}
+        utility::roots($a,$b,$c);
+    
+
 //callin the runner function
-Quadratic::calc();
+
+    }
+ }
+//  Quadratic::calc();
+$obj = new Quadratic();
+$obj->calc();
 ?>

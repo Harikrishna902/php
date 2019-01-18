@@ -5,8 +5,8 @@
   *@version 2.0
   *Date 16/01/2019
   */
- //requires method in Utility to take input and find leap year
-require('../Utility/utility.php');
+ //requires method in Utility to take input and find the sum
+require('utility.php');
 echo "enter the number of elements \n ";
 $n = utility::getInt();
 $arr = array();

@@ -11,12 +11,14 @@
  $rows =utility::getInt();
  echo "enter number of columns \n";
  $cols = utility::getInt();
+ echo " enter the elements to print \n";
  $twoDArr[][] = array();
  for($i=0;$i<$rows;$i++){
     for($j=0;$j<$cols;$j++){
         $twoDArr[$i][$j] =utility::getInt();
     }
 }
+ echo "Two dimentional  array is : \n";
 $arr = array_values($twoDArr);
 for($i=0;$i<$rows;$i++){
     for($j=0;$j<$cols;$j++){

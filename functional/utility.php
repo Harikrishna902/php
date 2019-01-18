@@ -7,16 +7,52 @@
   */
   class utility{
      /**
-     * to get input unless its an integer
+     * to get input unless its an integere
      */
-        public static function getInt(){
-         fscanf(STDIN,"%d",$val);
-         while(!is_numeric($val)){
-             echo "invalid input try again \n";
-             fscanf(STDIN," %d ",$val);
-         }
-         return $val;
-     }
+         public static function getInt(){
+        fscanf(STDIN,"%s \n",$val);
+        if($val==0){
+        while( !is_numeric($val)){
+        echo "ivalid input try again\n";
+        fscanf(STDIN," %s\ n ",$val);
+        }
+        return $val;
+        }
+        else{
+        while( !is_numeric($val) || $val/(int)$val>1){
+        echo "ivalid input try again\n";
+        fscanf(STDIN," %s\n ",$val);
+        }
+        return (int)$val;
+        }
+    }
+       /**
+     * to get input unless its an boolean value
+     */
+       public static function getBoolean(){
+        fscanf(STDIN,"%s\n",$val);
+        while($val!=='t' && $val!=='f'){
+        echo "ivalid input try again\n";
+        fscanf(STDIN," %s\n ",$val);
+        }
+        return $val;
+        }
+        
+        /**
+         * to get input unless its an decimal value
+         */
+            public static function getDouble(){
+            fscanf(STDIN,"%f\n",$val);
+            while(!is_float($val)){
+            echo "ivalid input try again\n";
+            fscanf(STDIN," %f\n ",$val);
+            }
+            return $val;
+            }
+        
+        /**
+         * to get input unless its an Intarr;
+         */
 
      public static function getIntArr(){
         echo "enter array size";
@@ -27,7 +63,89 @@
             $arr[$i] = Utility::getInt(); 
         }
         return $arr ;
-   }
+   }     
+         /**
+         * to get input unless its an String
+         */
+
+        public static function getString(){
+        fscanf(STDIN,"%s",$val);
+        while(is_numeric($val)){
+        echo "invalid input try again \n";
+        fscanf(STDIN," %s ",$val);
+        }
+            return $val;
+    }
+         /**
+         * FUNCTION for gambler 
+         */
+
+        public static function gambler($stack,$goal,$times){
+       
+            $wins=0;
+            $bets=0;
+            //loop to gamble no of time given by user
+            for($i = 0 ; $i <= $times ; $i++){
+                $cash = $stack ;
+                //loop till player got broke or win
+                while($cash>0&&$cash<$goal){
+                    $bets++;
+                    $val=rand(0,1);
+                    if($val<0.5){   //checking the condition
+                        $cash++;
+                    }
+                    else{
+                        $cash--;
+                    }
+                    if($cash==$goal){  
+                        $wins++;
+                    }
+                }
+        }
+            // display results of gamble
+            echo $wins." wins out of ".$times;
+            echo "\n total bets : ".$bets."\n" ;
+            echo "wins % is ".($wins/$times * 100)."%\n";
+        } 
+
+    
+         public static function primeFactor($n){
+        echo "prime factors are : \n";
+        for($num=2;$num<=$n;$num++){ // prime num start from 2
+            $flag = TRUE;
+            for($j=2;$j<=$num/2;$j++){
+                if($num%$j==0){  // it it is divided by zero it's not a prime
+                    $flag = FALSE;
+                    break;
+                }
+            }
+            if($flag==TRUE){
+                while($n%$num==0){
+                    echo $num." \n"; // prime numbers divided by inputs
+                    $n=$n/$num; 
+                }
+               
+            }
+        }
+}
+    /** function to arrange the el3ements in 2D array*/
+    public static function Twoarray($i,$jS){
+    for($i=0;$i<$rows;$i++){
+        for($j=0;$j<$cols;$j++){
+            $twoDArr[$i][$j] =utility::getInt();
+        }
+    }
+    echo "Two dimentional  array is : \n";
+    $arr = array_values($twoDArr);
+    for($i=0;$i<$rows;$i++){
+        for($j=0;$j<$cols;$j++){
+            echo $arr[$i][$j]." ";
+        }
+        echo "\n";
+    }
+    }
+
+
 
 
    /**
@@ -44,41 +162,37 @@
         return true ;
     }
       
-    public static function Windchill($temperature,$speed){
-    $w =  35.74 + 0.62158 * $f + (0.4275 * $f - 35.75) * $ws**0.16;
-    return$w;
-    }
+        
 
-    public static function root($a,$b,$c){
-        $delta = $b*$b-4*$a*$c;
-        $delta = abs($delta);
-        $root1 = (-$b + sqrt($delta))/(2*$a);
-        $root2 = (-$b - sqrt($delta))/(2*$a);
-        echo ("root1 equation" + root1);
-	    echo ("root2 equation" + root2 );
-    }
-    
-     
-     /**
-     * to get input unless its an String
-     */
-
-     public static function getString(){
-        fscanf(STDIN,"%s",$val);
-        while(!is_String($val)){
-            echo "invalid input try again \n";
-            fscanf(STDIN," %s ",$val);
+       // wind chill 
+        public static function wind($t,$v){
+          if($t<50&&$t>3)
+        {   
+             $windchill=35.74+0.6215*$t+(0.4275*$t-35.75)*(pow($v, 0.16));
+            echo $windchill;
         }
-        return $val;
+        }  
+      
+       // Quadratic 
+         public static function roots($a,$b,$c) {
+         $Delta=($b*$b)-(4*$a*$c);
+         $root1=(-$b+sqrt($Delta))/2*$a;
+         $root2=(-$b-sqrt($Delta))/2*$a;
+         echo " the roots are "."\n";
+         echo $root1."\n";
+         echo $root2."\n";
     }
 
+     
+    
+         // leap yaear****************
      public static function isLeapyear($year){
           return(($year % 4==0)&&($year % 100!=0)||($year % 400==0));
       }
 
-       /**
+    /**
      * prints Power of 2
-     */
+     */ 
     public static function powerOf2($power){
         for($s= 1 ; $s<=$power ; $s++){
             $pow =pow(2,$s);
@@ -106,10 +220,12 @@
           }
           echo "heads is ".$head. "\n";
           echo "tails is ".$tails;
-       
+          
+          $tailPercent = ($tails/$trails)*100;
+          $headsPercent = 100-$tailPercent;
+          echo "tails percentage".$tailPercent.PHP_EOL;
+          echo "heads percentage".$headsPercent.PHP_EOL;
+        
         } 
     }
-
-       
-
-  ?>
+     ?>
