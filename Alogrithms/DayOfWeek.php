@@ -1,6 +1,6 @@
 <?php
  /**********
-  *function to take user inputs and check the strings are anagrams or not
+  *function to find the day of a year
   *@authour harikrishna
   *@version 2.0
   *Date 17/01/2019
@@ -14,9 +14,9 @@
   
       static function main()
       {
-          echo "Enter day number \n";
+          echo "Enter day number between 1-31:\n";
           $d = utility::getInt();
-          echo "Enter month number \n";
+          echo "Enter month number 1-12: \n";
           $m = utility::getInt();
           echo "Enter year number \n";
           $y = utility::getInt();
