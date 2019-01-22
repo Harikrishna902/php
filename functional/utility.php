@@ -125,7 +125,7 @@ class utility
                 $bets++;
                 // genearting the random value by using rand method between 0 and 1
                 $value = rand(0, 1);
-                echo $value. " \n";
+                echo $value . " \n";
                 if ($value < 0.5) {
                     //incrementing the cash value;
                     $cash++;
@@ -163,6 +163,47 @@ class utility
     }
 
     /**
+     * function to find nth value of harmonic value
+     */
+
+    public static function getHarmonic($value)
+    {
+        //echo "enter the harmonic number \n";
+        //$value =utility::getInt();
+        $harmonic = 0.0;
+        for ($i = 1; $i <= $value; $i++) {
+            $harmonic = $harmonic + (1.0 / $i);
+            echo "1" . "/" . $i . "+";
+        }
+        //secho "\n";
+        echo "=" . $harmonic . "\n";
+    }
+
+    /**
+     * function to find the permutation of a String
+     */
+
+    public static function stringPermutation($str)
+    {
+        echo "permution words are \n";
+        //trim=removing characters from both sides
+        $str1 = trim($str);
+        if (!empty($str)) {
+            utility::permuation("", $str1);
+        } else {
+            echo "enter alteast one character \n";
+        }
+    }
+     public static function permuation($perm,$word){
+     if(empty($word)){
+    echo $perm.$word."\n"; 
+    for($i=0;$i<strlen($word);$i++){
+    utility::permuation($perm.$word{$i},substr($word,0,$i).substr($word,$i+1,strlen($word)));
+        }
+    }
+}
+
+    /**
      * Function to find if no is prime or not
      * @param n the no to check
      * @return true/false if prime or  not
@@ -197,7 +238,7 @@ class utility
         echo $root2 . "\n";
     }
 
-     /** function to  counts the   number of triples that sum to exactly 0*/
+    /** function to  counts the   number of triples that sum to exactly 0*/
     public static function distinctTriplets($n)
     {
         $arr = array();
@@ -205,21 +246,21 @@ class utility
         for ($i = 0; $i < $n; $i++) {
             //enter the elements to array
         }
-            $arr[$i] = utility::getInt(); 
-            $totalDistinct = 0;
-            for ($i = 0; $i < sizeof($arr); $i++) {
+        $arr[$i] = utility::getInt();
+        $totalDistinct = 0;
+        for ($i = 0; $i < sizeof($arr); $i++) {
             for ($j = $i + 1; $j < sizeof($arr); $j++) {
-            for ($k = $j + 1; $k < sizeof($arr); $k++) {
-            //sum of three values of arry is equal to 0
-            if (($arr[$i] + $arr[$j] + $arr[$k]) == 0) { 
-            echo $arr[$i] . " ", $arr[$j] . " " . $arr[$k] . " ";
-            $totalDistinct++;
+                for ($k = $j + 1; $k < sizeof($arr); $k++) {
+                    //sum of three values of arry is equal to 0
+                    if (($arr[$i] + $arr[$j] + $arr[$k]) == 0) {
+                        echo $arr[$i] . " ", $arr[$j] . " " . $arr[$k] . " ";
+                        $totalDistinct++;
                     }
                 }
             }
         }
         echo "\n total distinct triplets are " . $totalDistinct . "\n";
-   }
+    }
 
     /**
      * function to find the leap year

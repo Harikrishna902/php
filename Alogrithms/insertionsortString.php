@@ -9,7 +9,7 @@
 require ('utility.php');
 $file = fopen("hary.txt", "r");
 $filestr = fgets($file);
-$str = explode(",", $filestr) or die("file not found");
+$str = explode(" ", $filestr) or die("file not found");
 for ($i = 0; $i < sizeof($str); $i++) {
     echo $str[$i] . " ";
     echo " \n";

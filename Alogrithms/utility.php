@@ -88,11 +88,11 @@ class utility
     public static function getIntArr()
     {
         echo "enter array size";
-        $size = Utility::getInt();
+        $size = utility::getInt();
         $arr = array();
         echo "enter array value ";
         for ($i = 0; $i < $size; $i++) {
-            $arr[$i] = Utility::getInt();
+            $arr[$i] = utility::getInt();
         }
         return $arr;
     }
@@ -234,6 +234,7 @@ class utility
     public static function binarySFile($arr)
     {
         sort($arr);
+        print_r($arr);
         echo "\n";
         echo "enter element to search \n";
         $key = utility::getString();
@@ -291,7 +292,7 @@ class utility
             $key = $arr[$i];
             $j = $i - 1;
             while ($j >= 0) {
-                if (strcmp($arr[$j], $key) > 0) {
+                if (strcmp($arr[$j], $key) < 0) {
                     break;
                 }
                 $arr[$j + 1] = $arr[$j];
@@ -299,9 +300,9 @@ class utility
             }
             $arr[$j + 1] = $key;
         }
-        echo "after sorting \n";
+        echo "After sorting the elements in the file \n";
         for ($i = 0; $i < sizeof($arr); $i++) {
-            echo $arr[$i] . " ";
+            echo $arr[$i] . "\n";
         }
     }
     /**
@@ -313,6 +314,7 @@ class utility
     public static function bubbleSortInt($arr)
     {
         $n = sizeof($arr);
+        echo $n;
         $temp;
         // Traverse through all array elements
         for ($c = 0; $c < $n - 1; $c++) {
@@ -728,9 +730,42 @@ class utility
     }
 } 
 }
+    /**function to find  merge operation */
+    public static function mergeSort($left,$right){
+        $res = array();
+        while (count($left) > 0 && count($right) > 0)
+        {
+            if($left[0] > $right[0])
+            {
+                $res[] = $right[0];
+                //The array_slice() function returns selected parts of an array.
+                //returns the values after index 1
+                $right = array_slice($right , 1);
+            }
+            else
+            {
+                $res[] = $left[0];
+                //returns the values after index 1
+                $left = array_slice($left, 1);
+            }
+        }
+        while (count($left) > 0)
+        {
+            $res[] = $left[0];
+            $left = array_slice($left, 1);
+        }
+        while (count($right) > 0)
+        {
+            $res[] = $right[0];
+            $right = array_slice($right, 1);
+        }
+        return $res;
+    }
+    
+    
+
 }
-
-
-
 ?>
+
+
 

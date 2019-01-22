@@ -12,6 +12,8 @@ $Str = fread($myfile, filesize("hari143.txt"));
 echo $Str;
 echo "\n";
 $arr = array();
-$arr = explode(",", "$Str");
+$arr = explode(" ", "$Str");
+
 echo " after sorting the elements are \n";
-utility::bubbleSortInt($arr);
+$output = utility::bubbleSortInt($arr);
+print_r($output);

@@ -14,4 +14,3 @@ utility::distinctTriplets($n);
 
 
 
-
