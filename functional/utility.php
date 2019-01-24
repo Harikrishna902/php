@@ -173,7 +173,15 @@ class utility
         $harmonic = 0.0;
         for ($i = 1; $i <= $value; $i++) {
             $harmonic = $harmonic + (1.0 / $i);
-            echo "1" . "/" . $i . "+";
+            echo "1" . "/" . $i;
+            if($i==$value)
+            {
+
+            }
+            else
+            {
+                echo "+";
+            }
         }
         //secho "\n";
         echo "=" . $harmonic . "\n";
@@ -196,7 +204,7 @@ class utility
     }
      public static function permuation($perm,$word){
      if(empty($word)){
-    echo $perm.$word."\n"; 
+    echo $perm.$word."\n";
     for($i=0;$i<strlen($word);$i++){
     utility::permuation($perm.$word{$i},substr($word,0,$i).substr($word,$i+1,strlen($word)));
         }
@@ -325,3 +333,4 @@ class utility
         }
     }
 }
+?>

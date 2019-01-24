@@ -6,7 +6,7 @@
  *Date 22/01/2019
  */
 
-//requires method in Utility to take input and find flips of
+
 require ('utility.php');
 require ('LinkedList.php');
 class UnorderdList
@@ -17,15 +17,15 @@ class UnorderdList
     public static function Search()
     {
          //name of the file
-        $filename = "hari143.txt";
-        $list = new LinkList();
+        $filename = "word.txt";
+        $list = new LinkedList();
         $file = fopen($filename, "r") or die("unable to open the file");
         $filstr= fgets($file);
         $filearr = explode(" ",$filstr);
         print_r($filearr);
         //adding to the list
         for ($i = 0; $i < count($filearr); $i++) {
-            $list->append($filearr[$i]);
+            $list->add($filearr[$i]);
         }
         $elements = utility::getString();
          //searching the elemnt in the list
@@ -33,15 +33,15 @@ class UnorderdList
         if ($list->Search($elements) === true) {
             echo " element found \n removing element \n";
             $list->remove($elements);
-            echo $list->getString();
+            echo $list->getData();
         } else {
             echo "element not found \n adding element \n";
-            $list->append($elements);
-            echo $list->getString();
+            $list->add($elements);
+            echo $list->getData();
         }
         //writing back to the file
         $file1= fopen($filename,"w");
-        fwrite($file1, $list->getString());
+        fwrite($file1, $list->getData());
     }
 }
 //calling the method

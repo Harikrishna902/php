@@ -54,9 +54,10 @@ class utility
         return $val;
     }
     /**To get Strings array */
-     public static function getStringArray(){
-     return trim(fgets(STDIN));
-      }  
+    public static function getStringArray()
+    {
+        return trim(fgets(STDIN));
+    }
 
     /**
      * to get input unless its an float
@@ -279,7 +280,6 @@ class utility
         return $arr;
     }
 
-
     /**
      * Function to sort an array of string
      *
@@ -462,139 +462,132 @@ class utility
     /**
      * function to calculate the notes using vending machine
      */
-        public static function swapNibbles($x)
-        {
-            return (($x & 0x0F) << 4 | ($x & 0xF0) >> 4);
-        }
+    public static function swapNibbles($x)
+    {
+        return (($x & 0x0F) << 4 | ($x & 0xF0) >> 4);
+    }
 
     /**function to find element in using binarysearch */
-        public static function binarySearch($n)
-        {   
-            echo "1 : Binaray search\n";
-            $start = utility::startTime();
-            $arr = array();
-            echo "enter element \n";
-            for ($i = 0; $i < $n; $i++) {
-                $arr[$i] = utility::getInt();
-            }
-            sort($arr);
-            print_r($arr);
-            echo "enter element to search\n ";
-            $key = utility::getInt();
-            /**intial size of array */
-            $beg = 0; 
-            /**length of array */
-            $end = count($arr) - 1; 
-            while ($beg <= $end) {
-                /**calculate mid and round */
-                $mid = floor(($beg + $end) / 2); 
-                /**if mid of array is key then key is found */
-                if ($arr[$mid] == $key) { 
-                    echo "key found at " . $mid . "\n";
-                    break;
+    public static function binarySearch($n)
+    {
+        echo "1 : Binaray search\n";
+        $start = utility::startTime();
+        $arr = array();
+        echo "enter element \n";
+        for ($i = 0; $i < $n; $i++) {
+            $arr[$i] = utility::getInt();
+        }
+        sort($arr);
+        print_r($arr);
+        echo "enter element to search\n ";
+        $key = utility::getInt();
+        /**intial size of array */
+        $beg = 0;
+        /**length of array */
+        $end = count($arr) - 1;
+        while ($beg <= $end) {
+            /**calculate mid and round */
+            $mid = floor(($beg + $end) / 2);
+            /**if mid of array is key then key is found */
+            if ($arr[$mid] == $key) {
+                echo "key found at " . $mid . "\n";
+                break;
                 /**if key is less than mid of array then array moves forward*/
-                } else if ($key < $arr[$mid]) { 
-                    $end = $mid - 1;
-                } else {
+            } else if ($key < $arr[$mid]) {
+                $end = $mid - 1;
+            } else {
                 /**if key>arry of mid then mid+1 */
-                $beg = $mid + 1; 
-                }
+                $beg = $mid + 1;
             }
-            if ($beg > $end) {
-                echo "element not found\n";
-            }
-            $stop = utility::stopTime();
-            $elapsed = utility::elapsedTime($start, $stop);
-            echo ($elapsed/1000) . " sec elasped\n";
-            return $elapsed;
         }
-
-          /**function to find element in using binarysearch with string */
-         public static function binarySearchString($n)
-         {
-            echo "2 : binarysearch string \n";
-            $start = utility::startTime();
-            $arr = array();
-            echo "enter element in string \n";
-            for ($i = 0; $i < $n; $i++) {
-                /**enter elements into array */
-                $arr[$i] = utility::getStringArray(); 
-            }
-            sort($arr);
-            print_r($arr);
-            echo "enter element to search \n";
-            $key = utility::getString();
-            $beg = 0;
-            $end = count($arr) - 1;
-            while ($beg <= $end) {
-                $mid = floor(($beg + $end) / 2);
-                if (strcmp($arr[$mid], $key) == 0) {
-                    echo "found at " . $mid;
-                    break;
-                } else if (strcmp($arr[$mid], $key) < 0) {
-                    $beg = $mid + 1;
-                } else if (strcmp($arr[$mid], $key) > 0) {
-                    $end = $mid - 1;
-                }
-            }
-            if ($beg > $end) {
-                echo "element not found\n";
-            }
-            $stop = utility::stopTime();
-            $elapsed = utility::elapsedTime($start, $stop);
-            echo ($elapsed/1000) . " sec elasped\n";
-            return $elapsed;
+        if ($beg > $end) {
+            echo "element not found\n";
         }
-        
+        $stop = utility::stopTime();
+        $elapsed = utility::elapsedTime($start, $stop);
+        echo ($elapsed / 1000) . " sec elasped\n";
+        return $elapsed;
+    }
 
-          /**function to sort integers using insertion sort */
-          public static function insedrtionSort($n)
-          {
-              echo " 3: insertion sort \n";
-              $start = utility::startTime();
-              $arr = array();
-              echo "enter element \n";
-              for ($i = 0; $i < $n; $i++) {
-                  $arr[$i] = utility::getInt();
-              }
-              $len = sizeof($arr);
-              for ($i = 1; $i < $len; $i++) {
-                  $key = $arr[$i];
-                  $j = $i - 1;
-                  while ($j >= 0 && $arr[$j] > $key) {
-                      $arr[$j + 1] = $arr[$j];
-                      $j--;
-                  }
-                  $arr[$j + 1] = $key;
-              }
-              for ($i = 0; $i < $len; $i++) {
-                  echo $arr[$i] . " ";
-              }
-              echo "\n";
-              $stop = utility::stopTime();
-              $elapsed = utility::elapsedTime($start, $stop);
-              echo ($elapsed/1000). " sec elasped\n";
-              return $elapsed;
-          }
-        
-    
-
-            
-          
-
-      
-        /**function to sort integers using insertion sort for strings */
-          public static function insertionSortString($n)
-         {
-            echo "4 : insertion sort string \n";
-            $start = utility::startTime();
-            $arr = array();
-            echo "enter element in string\n";
-            for ($i = 0; $i < $n; $i++) {
-                $arr[$i] = utility::getString();
+    /**function to find element in using binarysearch with string */
+    public static function binarySearchString($n)
+    {
+        echo "2 : binarysearch string \n";
+        $start = utility::startTime();
+        $arr = array();
+        echo "enter element in string \n";
+        for ($i = 0; $i < $n; $i++) {
+            /**enter elements into array */
+            $arr[$i] = utility::getStringArray();
+        }
+        sort($arr);
+        print_r($arr);
+        echo "enter element to search \n";
+        $key = utility::getString();
+        $beg = 0;
+        $end = count($arr) - 1;
+        while ($beg <= $end) {
+            $mid = floor(($beg + $end) / 2);
+            if (strcmp($arr[$mid], $key) == 0) {
+                echo "found at " . $mid;
+                break;
+            } else if (strcmp($arr[$mid], $key) < 0) {
+                $beg = $mid + 1;
+            } else if (strcmp($arr[$mid], $key) > 0) {
+                $end = $mid - 1;
             }
-            $len = sizeof($arr);
-            for ($i = 1; $i < $len; $i++) {
+        }
+        if ($beg > $end) {
+            echo "element not found\n";
+        }
+        $stop = utility::stopTime();
+        $elapsed = utility::elapsedTime($start, $stop);
+        echo ($elapsed / 1000) . " sec elasped\n";
+        return $elapsed;
+    }
+
+    /**function to sort integers using insertion sort */
+    public static function insedrtionSort($n)
+    {
+        echo " 3: insertion sort \n";
+        $start = utility::startTime();
+        $arr = array();
+        echo "enter element \n";
+        for ($i = 0; $i < $n; $i++) {
+            $arr[$i] = utility::getInt();
+        }
+        $len = sizeof($arr);
+        for ($i = 1; $i < $len; $i++) {
+            $key = $arr[$i];
+            $j = $i - 1;
+            while ($j >= 0 && $arr[$j] > $key) {
+                $arr[$j + 1] = $arr[$j];
+                $j--;
+            }
+            $arr[$j + 1] = $key;
+        }
+        for ($i = 0; $i < $len; $i++) {
+            echo $arr[$i] . " ";
+        }
+        echo "\n";
+        $stop = utility::stopTime();
+        $elapsed = utility::elapsedTime($start, $stop);
+        echo ($elapsed / 1000) . " sec elasped\n";
+        return $elapsed;
+    }
+
+    /**function to sort integers using insertion sort for strings */
+    public static function insertionSortString($n)
+    {
+        echo "4 : insertion sort string \n";
+        $start = utility::startTime();
+        $arr = array();
+        echo "enter element in string\n";
+        for ($i = 0; $i < $n; $i++) {
+            $arr[$i] = utility::getString();
+        }
+        $len = sizeof($arr);
+        for ($i = 1; $i < $len; $i++) {
             $key = $arr[$i];
             $j = $i - 1;
             while ($j >= 0) {
@@ -604,168 +597,171 @@ class utility
                 $arr[$j + 1] = $arr[$j];
                 $j--;
             }
-                $arr[$j + 1] = $key;
-            }
-            for ($i = 0; $i < $len; $i++) {
-                echo $arr[$i] . " ";
-            }
-            $stop = utility::stopTime();
-            $elapsed = utility::elapsedTime($start, $stop);
-            echo ($elapsed/1000) . " sec elasped\n";
-            return $elapsed;
+            $arr[$j + 1] = $key;
+        }
+        for ($i = 0; $i < $len; $i++) {
+            echo $arr[$i] . " ";
+        }
+        $stop = utility::stopTime();
+        $elapsed = utility::elapsedTime($start, $stop);
+        echo ($elapsed / 1000) . " sec elasped\n";
+        return $elapsed;
     }
 
-
-        /**function to sort using bubblesort */
-        public static function bubbleSorted($n)
-        {
-            echo " 5 : bubble sort \n";
-            $start = utility::startTime();
-            $arr = array();
-            echo "enter element \n";
-            for ($i = 0; $i < $n; $i++) {
-                $arr[$i] = utility::getInt();
-            }
-            $len = sizeof($arr);
-            for ($i = 0; $i < $len; $i++) {
-                for ($j = $i + 1; $j < $len; $j++) {
-                    if ($arr[$i] > $arr[$j]) {
-                        $temp = $arr[$i];
-                        $arr[$i] = $arr[$j];
-                        $arr[$j] = $temp;
-                    }
+    /**function to sort using bubblesort */
+    public static function bubbleSorted($n)
+    {
+        echo " 5 : bubble sort \n";
+        $start = utility::startTime();
+        $arr = array();
+        echo "enter element \n";
+        for ($i = 0; $i < $n; $i++) {
+            $arr[$i] = utility::getInt();
+        }
+        $len = sizeof($arr);
+        for ($i = 0; $i < $len; $i++) {
+            for ($j = $i + 1; $j < $len; $j++) {
+                if ($arr[$i] > $arr[$j]) {
+                    $temp = $arr[$i];
+                    $arr[$i] = $arr[$j];
+                    $arr[$j] = $temp;
                 }
             }
-            for ($i = 0; $i < $len; $i++) {
-                echo $arr[$i] . " ";
-            }
-            $stop = utility::stopTime();
-            $elapsed = utility::elapsedTime($start, $stop);
-            echo ($elapsed/1000) . " sec elasped\n";
-            return $elapsed;
-        }   
+        }
+        for ($i = 0; $i < $len; $i++) {
+            echo $arr[$i] . " ";
+        }
+        $stop = utility::stopTime();
+        $elapsed = utility::elapsedTime($start, $stop);
+        echo ($elapsed / 1000) . " sec elasped\n";
+        return $elapsed;
+    }
 
-         /**function to sort using bubblesort for strings */
-            public static function bubbleSortString($n)
-            {
-            echo "6 : bubble sort string\n";
-            $start = utility::startTime();
-            $arr = array();
-            echo "enter element in string\n";
-            for ($i = 0; $i < $n; $i++) {
-                $arr[$i] = utility::getStringArray();
-            }
-            $len = sizeof($arr);
-            for ($i = 0; $i < $len; $i++) {
-                for ($j = $i + 1; $j < $len; $j++) {
-                    if (strcmp($arr[$i], $arr[$j]) > 0) {
-                        $temp = $arr[$i];
-                        $arr[$i] = $arr[$j];
-                        $arr[$j] = $temp;
-                    }
+    /**function to sort using bubblesort for strings */
+    public static function bubbleSortString($n)
+    {
+        echo "6 : bubble sort string\n";
+        $start = utility::startTime();
+        $arr = array();
+        echo "enter element in string\n";
+        for ($i = 0; $i < $n; $i++) {
+            $arr[$i] = utility::getStringArray();
+        }
+        $len = sizeof($arr);
+        for ($i = 0; $i < $len; $i++) {
+            for ($j = $i + 1; $j < $len; $j++) {
+                if (strcmp($arr[$i], $arr[$j]) > 0) {
+                    $temp = $arr[$i];
+                    $arr[$i] = $arr[$j];
+                    $arr[$j] = $temp;
                 }
             }
-            for ($i = 0; $i < $len; $i++) {
-                echo $arr[$i] . " ";
-            }
-            $stop = utility::stopTime();
-            $elapsed = utility::elapsedTime($start, $stop);
-            echo ($elapsed/1000) . " sec elasped\n";
-            return $elapsed;
         }
-           
-          /**function to Search and Sorted List
-            */
-
-            public static function startTime()
-            {
-                $start = round(microtime(true) * 1000);
-                echo $start . "\n";
-                return $start;
-            }
-            public static function stopTime()
-            {
-                $stop = round(microtime(true) * 1000);
-                echo $stop . "\n";
-                return $stop;
-            }
-            public static function elapsedTime($start, $stop)
-            {
-                return $elapsed = $stop - $start;
-                unset($start);
-                unset($stop);
-            }
-
-
-        /**
-        * function to guess the no given by user in 2^n times
-        */
-
-         public static function GuessNumber($s)
-         {
-        $low = 0 ;
-        $high = 1023 ;
-        for($i = 0 ;$i < 100 ;$i++){
-        while($low<=$high){
-        $mid = round(($low + $high)/2);
-        echo "If your no is bw ".$low." and ".$mid." press 1\n";
-        echo "If your no is bw ".$mid." and ".$high." press 2\n";
-        //get user no for choice
-        $s=utility::getInt();
-        /**
-         * user enters 2 and 1 according to output
-         */
-
-        //if low is high then the no is found
-        if($high == $mid){
-            echo "your no is ".$high;
-            return $high ;
+        for ($i = 0; $i < $len; $i++) {
+            echo $arr[$i] . " ";
         }
-        else if($s!=1){
-            $low = $mid;
-        }
-        else{
-            $high = $mid;
+        $stop = utility::stopTime();
+        $elapsed = utility::elapsedTime($start, $stop);
+        echo ($elapsed / 1000) . " sec elasped\n";
+        return $elapsed;
+    }
+
+    /**function to Search and Sorted List
+     */
+
+    public static function startTime()
+    {
+        $start = round(microtime(true) * 1000);
+        echo $start . "\n";
+        return $start;
+    }
+    public static function stopTime()
+    {
+        $stop = round(microtime(true) * 1000);
+        echo $stop . "\n";
+        return $stop;
+    }
+    public static function elapsedTime($start, $stop)
+    {
+        return $elapsed = $stop - $start;
+        unset($start);
+        unset($stop);
+    }
+
+    /**
+     * function to guess the no given by user in 2^n times
+     */
+
+    public static function GuessNumber($s)
+    {
+        $low = 0;
+        $high = 1023;
+        for ($i = 0; $i < 100; $i++) {
+            while ($low <= $high) {
+                $mid = round(($low + $high) / 2);
+                echo "If your no is bw " . $low . " and " . $mid . " press 1\n";
+                echo "If your no is bw " . $mid . " and " . $high . " press 2\n";
+                //get user no for choice
+                $s = utility::getInt();
+                /**
+                 * user enters 2 and 1 according to output
+                 */
+
+                //if low is high then the no is found
+                if ($high == $mid) {
+                    echo "your no is " . $high;
+                    return $high;
+                } else if ($s != 1) {
+                    $low = $mid;
+                } else {
+                    $high = $mid;
+                }
+            }
         }
     }
-} 
-}
+    public static function mergeSort($input)
+    {
+        $len = count($input);
+        /**if input size is 1 then return  */
+        if (count($input) == 1) {
+            return $input;
+        }
+
+        /**calculate mid */
+        $mid = floor(count($input) / 2);
+        /**divide array into two halves until is size is 1 */
+        $left = array_slice($input, 0, $mid);
+        $right = array_slice($input, $mid, $len - 1);
+        $left = utility::mergeSort($left);
+        $right = utility::mergeSort($right);
+        /**merge sort the subarrays */
+        return utility::merge($left, $right);
+    }
     /**function to find  merge operation */
-    public static function mergeSort($left,$right){
+    public static function merge($left, $right)
+    {
         $res = array();
-        while (count($left) > 0 && count($right) > 0)
-        {
-            if($left[0] > $right[0])
-            {
+        while (count($left) > 0 && count($right) > 0) {
+            if ($left[0] > $right[0]) {
                 $res[] = $right[0];
                 //The array_slice() function returns selected parts of an array.
                 //returns the values after index 1
-                $right = array_slice($right , 1);
-            }
-            else
-            {
+                $right = array_slice($right, 1);
+            } else {
                 $res[] = $left[0];
                 //returns the values after index 1
                 $left = array_slice($left, 1);
             }
         }
-        while (count($left) > 0)
-        {
+        while (count($left) > 0) {
             $res[] = $left[0];
             $left = array_slice($left, 1);
         }
-        while (count($right) > 0)
-        {
+        while (count($right) > 0) {
             $res[] = $right[0];
             $right = array_slice($right, 1);
         }
         return $res;
     }
-    
-    
 
 }
-?>
-
-
-

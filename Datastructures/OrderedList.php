@@ -17,15 +17,15 @@ class OrderdList
     public static function Search()
     {
          //name of the file
-        $filename = "hary143.txt";
-        $list = new LinkList();
+        $filename = "number.txt";
+        $list = new LinkedList();
         $file = fopen($filename, "r") or die("unable to open the file");
         $filstr= fgets($file);
         $filearr = explode(" ",$filstr);
         print_r($filearr);
         //adding to the list
         for ($i = 0; $i < count($filearr); $i++) {
-            $list->append($filearr[$i]);
+            $list->add($filearr[$i]);
         }
         $elements = utility::getInt();
          //searching the elemnt in the list
@@ -33,15 +33,15 @@ class OrderdList
         if ($list->Search($elements) === true) {
             echo " element found \n removing element \n";
             $list->remove($elements);
-            echo $list->getString();
+            echo $list->getData();
         } else {
             echo "element not found \n adding element \n";
             $list->add($elements);
-            echo $list->getString();
+            echo $list->getData();
         }
         //writing back to the file
         $file1= fopen($filename,"w");
-        fwrite($file1, $list->getString());
+        fwrite($file1, $list->getData());
     }
 }
 //calling the method
