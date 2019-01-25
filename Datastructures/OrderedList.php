@@ -27,6 +27,7 @@ class OrderdList
         for ($i = 0; $i < count($filearr); $i++) {
             $list->add($filearr[$i]);
         }
+        echo " enter element to search";
         $elements = utility::getInt();
          //searching the elemnt in the list
          //(===) used for identical values and returns true

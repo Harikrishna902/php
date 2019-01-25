@@ -141,6 +141,27 @@ class utility
         return $primesnumbers;
     }
 
+    /**function to print prime anagram of prime array */
+    public static function printAnagrams($prime)
+    {
+        $primeAnagram = array(); // intit array
+        $count = 0;
+        for ($i = 0; $i < sizeof($prime); $i++) {
+            for ($j = $i + 1; $j < sizeof($prime); $j++) {
+                if (utility::isAnagram("$prime[$i]", "$prime[$j]") == true) { //check two index are anagram
+                    $primeAnagram[$count] = $prime[$i]; // if true then add to array
+                    $count++;
+                     $primeAnagram[$count++] = $prime[$j];
+                }
+            }
+        }
+        
+       $temp = array_unique($primeAnagram);
+       $new_array = array_values($temp);
+       
+        return $new_array;
+    }
+
 
     public static function primeNumber()
         {
@@ -171,6 +192,32 @@ class utility
             }  
             return $arr; 
         }
+
+        /**
+     * Detects if given strings are anagrams or not
+     * @param s1 the first string
+     * @param s2 the second string to check
+     * @return true/false if anagrram or not
+     *
+     */
+    public static function isAnagram($s1, $s2)
+    {
+        $len1 = strlen($s1);
+        $len2 = strlen($s2);
+        if ($len1 == $len2) {
+            $array1 = str_split($s1);
+            $array2 = str_split($s2);
+            sort($array1);
+            sort($array2);
+            $s3 = implode("", $array1);
+            $s4 = implode("", $array2);
+            if ($s3 == $s4) {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
 
 
     /**
@@ -226,19 +273,12 @@ class utility
      */
     public static function dayOfWeek($d, $m, $y)
     {
-        
-        if ($d == 0 && $d > 31) {
-            echo "invalid number";
-        } else if ($m == 0 && $m > 12) {
-            echo "invalid m number";
-        } else if ($y == 0) {
-            echo "invalid y ";
-        }
-        $y0 = floor($y - (14 - $m) / 12) + 1;
-        $x = floor($y0 + $y0 / 4 - $y0 / 100 + $y0 / 400);
+        $y0 = floor($y - (14 - $m) / 12) +1 ;
+        $x = floor($y0 + $y0/4 - $y0/100 + $y0/400);
         $m0 = ($m + 12 * floor(((14 - $m) / 12)) - 2);
-        $d0 = floor(($d + $x + floor((31 * $m0) / 12)) % 7);
+        $d0 = floor(($d + $x + floor((31*$m0) / 12)) % 7) ;
         return $d0;
+    
     }
 
     /**
@@ -247,8 +287,8 @@ class utility
 
     public function leap()
     {
-        echo "enter the y \n";
-        $y = utility::getInt();
+        //echo "enter the y \n";
+        //$y = utility::getInt();
         if (strlen((String) $y) == 4) {
             //calling the function fron Utility class
             if (utility::isLeapy($y)) {
@@ -272,65 +312,69 @@ class utility
         return (($y % 4 == 0) && ($y % 100 != 0) || ($y % 400 == 0));
     }
 
+     /**
+     * function to find the Calendar
+     */
     public static function Calendar()
     {
-        $m;
-        $y;
-        echo "enter month \n ";
-        $m = utility::getInt();
-        while ($m > 12) {
-            echo "enter valid m number \n";
-            $m = utility::getInt();
-        }
-        echo "enter year \n";
-        $y = utility::getInt();
-        while ($y < 1000) {
-            echo "enter valid year \n";
-            $y = utility::getInt();
-        }
-        $d = 1;
-        $d0 = utility::dayOfWeek($d, $m, $y);
-        $Calendar = array();
-        $days = array('31', '28', '31', '30', '31', '30', '31', '31', '30', '31', '30', '31');
-        $y = array('Jan', 'feb', 'mar', 'April', 'May', 'june', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
-        $week = array('Sunday', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
-        if (utility::isLeapy($y)) {
-            $days[1] = 29;
-        }
-        for ($i = 0; $i < 6; $i++) {
-            for ($j = 0; $j < 7; $j++) {
-                $Calendar[$i][$j] = -1;
-            }
-        }
-        echo "\t" . $y[$m - 1]."\n";
-        $dateinc = 1;
-        
-        for ($i = $d0; $i < 7; $i++) {
-            $Calendar[0][$i] = $dateinc++;
-        }
-        for ($i = 1; $i < 6; $i++) {
-            for ($j = 0; $j < 7; $j++) {
-                $Calendar[$i][$j] = $dateinc++;
-            }
-        }
-        for ($l = 0; $l < sizeof($week); $l++) {
-            echo "\t" . $week[$l] . " ";
-        }
-        
-        echo "\n";
-        for ($i = 0; $i < 6; $i++) {
-            for ($j = 0; $j < 7; $j++) {
-                if (($Calendar[$i][$j] < 0) || ($Calendar[$i][$j] > $days[$m - 1])) {
-                    echo "\t";
-                } else if ($Calendar[$i][$j] > 0) {
-                    echo "\t" . $Calendar[$i][$j] . " ";
-                }
-            }
-            echo "\n";
-        }
-        return $Calendar;
-    
-
+    echo "enter the month \n";
+    $m = utility::getInt();
+    if(($m<=0)&&($m> 12)) {
+    echo "enter valid month number \n";
+        $month = utility::getInt();
     }
-}
+    $date = 1;
+    echo "enter the year  \n";
+    $y = utility::getInt();
+    if($y < 1000) {
+        echo "enter valid year \n";
+        $y = utility::getInt();
+    }
+    $d0 = utility::dayOfWeek($date,$m,$y);
+    $calender = array();
+    $days =array('31','28','31','30','31','30','31','31','30','31','30','31');
+    $months =array('Jan','Feb','March','April','may','June','july','Aug','Sep','oct','Nov','Dec');
+    $week = array('Sun','Mon','Tue','Wed','Th','Fri','Sat');
+    if(utility::isLeapy($y)){
+        $days[1]=29;
+    }
+    // print_r($days);
+    for($i=0;$i<6;$i++){
+        for($j=0;$j<7;$j++){
+            $calender[$i][$j]= -1;
+        }
+    }
+    echo "\t\t\t\t".$months[$m-1]." ".$y."\n";
+    
+    
+    $dateinc = 1;
+    for($i=$d0;$i<7;$i++){
+        $calender[0][$i] = $dateinc++;
+    }
+    for($i=1;$i<6;$i++){
+        for($j=0;$j<7;$j++){
+            
+            $calender[$i][$j] = $dateinc++;
+        }
+    }
+    for($k=0;$k<sizeof($week);$k++){
+        echo "\t".$week[$k]." ";
+    }
+    echo "\n";
+    for($i=0;$i<6;$i++){
+        for($j=0;$j<7;$j++){
+            if(($calender[$i][$j]<0)||($calender[$i][$j]>$days[$m-1])){
+                echo "\t";
+            }else if($calender[$i][$j]>0){
+                echo "\t".$calender[$i][$j]." ";
+            }
+         }
+        echo "\n";
+    
+        }
+    return $calender;
+        
+    }
 
+}
+?>

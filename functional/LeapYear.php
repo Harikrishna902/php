@@ -17,14 +17,21 @@ class LeapYear
             //calling the function fron Utility class
             if (utility::isLeapyear($year)) {
                 echo "is a leap year \n";
-            } else {
+            } 
+            else
+            {
                 echo "is not a leap year \n";
             }
 
         }
-         else {
+    
+         else 
+         {
             echo "enter valid  year";
         }
-    }
+    
 }
+}
+    
+
 LeapYear::leap();

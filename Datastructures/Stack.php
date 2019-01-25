@@ -27,7 +27,7 @@ class Stack
     private static $size = 0;
     //
     // function for adding the elements to the stack
-    public function push()
+    public function push($item)
     {
         //$iteam;
         $new_node = new Node($item);

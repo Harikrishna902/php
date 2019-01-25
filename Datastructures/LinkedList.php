@@ -71,6 +71,7 @@ class LinkedList{
         $previous = $current;
         $current = $current->next;
     }
+    
     // For the first node
     if ($current == $previous) {
         $this->head = $current->next;

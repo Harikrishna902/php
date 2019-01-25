@@ -27,6 +27,7 @@ class UnorderdList
         for ($i = 0; $i < count($filearr); $i++) {
             $list->add($filearr[$i]);
         }
+        echo " enter the element to search \n";
         $elements = utility::getString();
          //searching the elemnt in the list
          //(===) used for identical values and returns true
