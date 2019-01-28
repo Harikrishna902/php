@@ -43,8 +43,8 @@ for ($i = 0; $i < $people; $i++) {
         $i--;
     }
 }
-$withd = array(0, 0);
-$depos = array(0, 0);
+$withd = array();
+$depos = array();
 while (!$q->isEmpty()) {
     $amount = $q->dequeue();
     if ($amt < 0) {

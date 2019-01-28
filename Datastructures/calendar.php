@@ -6,7 +6,12 @@
  *@version 2.0
  *Date 24/01/2019
  */
-// requried to get input from another class
+/**
+ * requried to get input from another class
+ */
 require('utility.php');
+/**
+ * calling the function
+ */
 utility::Calendar();
 ?>

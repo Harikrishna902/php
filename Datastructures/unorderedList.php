@@ -4,33 +4,47 @@
  *@authour harikrishna
  *@version 2.0
  *Date 22/01/2019
- */
+ *****************************************************************************************************/
 
-//requires method in Utility to take input and find flips of
+ /**
+ * requried to get input from another class
+ */
 require ('utility.php');
-require ('LinkedList.php');
-class OrderdList
+require ('linkedList.php');
+class unorderdList
 {
      /**
      * function to read ,search, add to the list 
      */
     public static function Search()
     {
-         //name of the file
-        $filename = "number.txt";
-        $list = new LinkedList();
+         /**
+          * name of the file
+          */
+        $filename = "word.txt";
+        $list = new linkedList();
         $file = fopen($filename, "r") or die("unable to open the file");
+        
+        /**
+         * returns the elements from a open file 
+         */
         $filstr= fgets($file);
         $filearr = explode(" ",$filstr);
         print_r($filearr);
-        //adding to the list
+
+        /**
+         * adding to the list
+         */
         for ($i = 0; $i < count($filearr); $i++) {
             $list->add($filearr[$i]);
         }
-        echo " enter element to search";
-        $elements = utility::getInt();
-         //searching the elemnt in the list
-         //(===) used for identical values and returns true
+        echo " enter the element to search \n";
+        $elements = utility::getString();
+        
+         /**
+          * searching the elemnt in the list
+         *(===) used for identical values and returns true
+          */
         if ($list->Search($elements) === true) {
             echo " element found \n removing element \n";
             $list->remove($elements);
@@ -40,13 +54,17 @@ class OrderdList
             $list->add($elements);
             echo $list->getData();
         }
-        //writing back to the file
+        /**
+         * /writing back to the file
+         */
         $file1= fopen($filename,"w");
         fwrite($file1, $list->getData());
     }
 }
-//calling the method
-OrderdList::Search();
-//$obj-> new UnorderdList();
+/**
+ * calling the method
+ */
+unorderdList::Search();
+//$obj-> new unorderdList();
 //$obj->Search();
 ?>

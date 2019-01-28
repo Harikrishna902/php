@@ -4,7 +4,7 @@
  *@authour harikrishna
  *@version 2.0
  *Date 22/01/2019
- */
+ ****************************************************************************************/
 class utility
 {
     /**
@@ -53,7 +53,9 @@ class utility
         }
         return $val;
     }
-    /**To get Strings array */
+    /**
+     * To get Strings array 
+     */
     public static function getStringArray()
     {
         return trim(fgets(STDIN));
@@ -62,8 +64,7 @@ class utility
     /**
      * to get input unless its an String
      */
-
-    public static function getString()
+     public static function getString()
     {
         fscanf(STDIN, "%s", $val);
         while (is_numeric($val)) {
@@ -116,19 +117,30 @@ class utility
     public static function primes($number)
     {
         $i = 0;
-        // declaring an array
+        /**
+         * declaring an array
+         */
         $primesnumbers = array();
-        //iterations through the loop
+        /**
+         * iterations through the loop
+         */
         for ($indexi = 1; $indexi <= $number; $indexi++) {
-            //used to check the status of a number
+            /**
+             * used to check the status of a number
+             */
             $count = 0;
             for ($indexj = $indexi; $indexj >= 1; $indexj--) {
-                // condition of primenumber
+                /**
+                 *  condition of primenumber
+                 */
                 if ($indexi % $indexj == 0) {
                     $count++;
                 }
             }
-            //equating with 2
+
+            /**
+             * equating with 2
+             */
             if ($count == 2) {
                 $primesnumbers[$i] = $indexi;
                 $i++;
@@ -141,15 +153,23 @@ class utility
         return $primesnumbers;
     }
 
-    /**function to print prime anagram of prime array */
+    /*
+    *function to print prime anagram of prime array
+     */
     public static function printAnagrams($prime)
     {
         $primeAnagram = array(); // intit array
         $count = 0;
         for ($i = 0; $i < sizeof($prime); $i++) {
             for ($j = $i + 1; $j < sizeof($prime); $j++) {
-                if (utility::isAnagram("$prime[$i]", "$prime[$j]") == true) { //check two index are anagram
-                    $primeAnagram[$count] = $prime[$i]; // if true then add to array
+                /**
+                 * check two index are anagram
+                 */
+                if (utility::isAnagram("$prime[$i]", "$prime[$j]") == true) { 
+                    /**
+                     * if true then add to array
+                     */
+                    $primeAnagram[$count] = $prime[$i]; 
                     $count++;
                      $primeAnagram[$count++] = $prime[$j];
                 }
@@ -313,14 +333,17 @@ class utility
     }
 
      /**
-     * function to find the Calendar
+     * function to find the calendar
      */
-    public static function Calendar()
+    public static function calendar()
     {
     echo "enter the month \n";
     $m = utility::getInt();
     if(($m<=0)&&($m> 12)) {
     echo "enter valid month number \n";
+    /**
+     * getting interger value
+     */
         $month = utility::getInt();
     }
     $date = 1;
@@ -330,6 +353,9 @@ class utility
         echo "enter valid year \n";
         $y = utility::getInt();
     }
+    /**
+     * getting day value from another class
+     */
     $d0 = utility::dayOfWeek($date,$m,$y);
     $calender = array();
     $days =array('31','28','31','30','31','30','31','31','30','31','30','31');
@@ -339,11 +365,17 @@ class utility
         $days[1]=29;
     }
     // print_r($days);
+    /**
+     * printing -1 in 6x7 matrix
+     */
     for($i=0;$i<6;$i++){
         for($j=0;$j<7;$j++){
             $calender[$i][$j]= -1;
         }
     }
+    /**
+     * printing month names
+     */
     echo "\t\t\t\t".$months[$m-1]." ".$y."\n";
     
     

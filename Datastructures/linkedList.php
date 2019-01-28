@@ -8,12 +8,18 @@
 */
 class Node
 {
-    /* Data to hold */
+    /**
+     * Data to hold 
+     */
     public $data;
-    /* Link to next node */
+    /* 
+    *Link to next node 
+    */
     public $next;
     
-     /**  Node constructor */
+    /*
+    *  Node constructor 
+    */
     public function __construct($d){
         $this->data = $d;
         $this->next = null;
@@ -23,7 +29,7 @@ class LinkedList{
     private static $size=0;
     public $head;
 
-    /**
+    /*
      * function to add the data of Linked list
      */
     public function add($data){
@@ -40,39 +46,26 @@ class LinkedList{
         self::$size++;
     }
 
-    /**
+    /*
      * function to check if the list is empty or not 
      */
     public function isEmpty(){
        return $this->head == null;
     }
 
-     /**
+     /*
      * function to remove the data given as argument removes only if data is there 
      */
     public function remove($key){
-    //     $current = $this->head;
-    //     $temp = null;
-    //     if($current!=null&&($current->data)==$data){
-    //         $head = $current->next;
-    //         return;
-    //     }
-    //     while($current!=null&&($current->data)!=$data){
-    //         $temp = $current;
-    //         $current = $current->next;
-    //     }
-    //     if($current == null){
-    //         return ;
-    //     }
-    //     $temp-> next = $current->next;
-    //    self::$size--;
     $current = $previous = $this->head;
     while($current->data != $key) {
         $previous = $current;
         $current = $current->next;
     }
     
-    // For the first node
+    /**
+     * For the first node
+     */
     if ($current == $previous) {
         $this->head = $current->next;
     }
@@ -149,6 +142,23 @@ class LinkedList{
             $current = $current->next;
         }
         return $str;
+    }
+
+
+    /**
+     * function to conver linked list to array
+     */
+    public function llToArr(){
+        $arr = array();
+        $temp = $this->head;
+        while($temp!=null){
+            for($i=0;$i<self::$size;$i++){
+                $arr[$i] = $temp->data;
+                $temp = $temp->next;
+            }    
+            
+        }
+        return $arr;
     }
  
 }

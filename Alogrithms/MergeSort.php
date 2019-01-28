@@ -10,6 +10,6 @@ $input = array("h","a","r","i","k","r");
 $output = utility::mergeSort($input);
 echo "elements are \n";
 for($i=0;$i<sizeof($output);$i++){
-    echo $output[$i] ."   \n";
+echo $output[$i] ."   \n";
 }
 ?>

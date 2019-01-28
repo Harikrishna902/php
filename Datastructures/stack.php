@@ -7,12 +7,19 @@
  */
 class Node
 {
-    /* Link to next node */
+    /**
+     *  Link to next node 
+     */
     public $next;
-    /* Data to hold */
+
+    /* 
+    *Data to hold 
+    */
     public $data;
 
-    /** Node constructor */
+    /** 
+     * Node constructor 
+    */
     public function __construct($d)
     {
         $this->data = $d;
@@ -21,31 +28,45 @@ class Node
 }
 class Stack
 {
-    //top value
+    /**
+     * top value
+     */
     public $top;
-    //size of the stack intially
+    /**
+     * size of the stack intially
+     */
     private static $size = 0;
-    //
-    // function for adding the elements to the stack
+    
+    /**
+     * function for adding the elements to the stack
+     */
     public function push($item)
     {
         //$iteam;
         $new_node = new Node($item);
-        //checking the stack and inserting the data
+        /**
+         * checking the stack and inserting the data
+         */
         if ($this->top == null) {
             $this->top = $new_node;
         } else {
             $new_node->next = $this->top;
             $this->top = $new_node;
         }
-        //increases the size
+        /**
+         * increases the size
+         */
         self::$size++;
     }
-    //function for removing r deleting the elements from the stack
+    /**
+     * function for removing r deleting the elements from the stack
+     */
     public function pop()
     {
         if ($this->top == null) {
-            //throws exception is stack is empty
+            /**
+             * throws exception is stack is empty
+             */
             echo "stack underflow \n";
         }
         $val = $this->top->data;
@@ -53,7 +74,9 @@ class Stack
         self::$size--;
         return $val;
     }
-    //function to display the data
+    /**
+     * function to display the data
+     */
     public function display()
     {
         $current = $this->top;
@@ -65,16 +88,24 @@ class Stack
             $current = $current->next;
         }
     }
-    //function to return the size of stack
+    /**
+     * function to return the size of stack
+     */
     public function size()
     {
         return self::$size;
     }
-    //function to check stack is empty r not
+    /**
+     * function to check stack is empty r not 
+     */
     public function isEmpty()
     {
         return $this->top == null;
     }
+
+    /**
+     * function to get peek number
+     */
     public function peek()
     {
         if (!$this->isEmpty()) {
