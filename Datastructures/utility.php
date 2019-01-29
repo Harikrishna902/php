@@ -54,7 +54,7 @@ class utility
         return $val;
     }
     /**
-     * To get Strings array 
+     * To get Strings array
      */
     public static function getStringArray()
     {
@@ -64,7 +64,7 @@ class utility
     /**
      * to get input unless its an String
      */
-     public static function getString()
+    public static function getString()
     {
         fscanf(STDIN, "%s", $val);
         while (is_numeric($val)) {
@@ -154,7 +154,7 @@ class utility
     }
 
     /*
-    *function to print prime anagram of prime array
+     *function to print prime anagram of prime array
      */
     public static function printAnagrams($prime)
     {
@@ -165,55 +165,54 @@ class utility
                 /**
                  * check two index are anagram
                  */
-                if (utility::isAnagram("$prime[$i]", "$prime[$j]") == true) { 
+                if (utility::isAnagram("$prime[$i]", "$prime[$j]") == true) {
                     /**
                      * if true then add to array
                      */
-                    $primeAnagram[$count] = $prime[$i]; 
+                    $primeAnagram[$count] = $prime[$i];
                     $count++;
-                     $primeAnagram[$count++] = $prime[$j];
+                    $primeAnagram[$count++] = $prime[$j];
                 }
             }
         }
-        
-       $temp = array_unique($primeAnagram);
-       $new_array = array_values($temp);
-       
+
+        $temp = array_unique($primeAnagram);
+        $new_array = array_values($temp);
+
         return $new_array;
     }
 
-
     public static function primeNumber()
-        {
-            $arr = array();
-            $index = 0;
+    {
+        $arr = array();
+        $index = 0;
+        /*
+         * for loop initialize from 2 because 0 and 1 are not prime number
+         */
+        for ($i = 2; $i < 1000; $i++) {
             /*
-            * for loop initialize from 2 because 0 and 1 are not prime number
-            */
-            for ($i = 2; $i < 1000; $i++) {
-                /*
-                * for loop to check that number is divisible by any other number or not if it
-                * is divisible by any other number then loop will break and return false
-                */
-                $b = true;
-                for ($j = 2; $j <= $i / 2; $j++) {
-                    if ($i % $j == 0) {
-                        $b = false;
-                        break;
-                    }
+             * for loop to check that number is divisible by any other number or not if it
+             * is divisible by any other number then loop will break and return false
+             */
+            $b = true;
+            for ($j = 2; $j <= $i / 2; $j++) {
+                if ($i % $j == 0) {
+                    $b = false;
+                    break;
                 }
-                /*
-                * if number is divisible by only one and itself the it will add to ArrayList
-                */
-                if ($b == true) {
-                    $arr[$index++] = (string)$i;
-                    //echo $i."\n";
-                }
-            }  
-            return $arr; 
+            }
+            /*
+             * if number is divisible by only one and itself the it will add to ArrayList
+             */
+            if ($b == true) {
+                $arr[$index++] = (string) $i;
+                //echo $i."\n";
+            }
         }
+        return $arr;
+    }
 
-        /**
+    /**
      * Detects if given strings are anagrams or not
      * @param s1 the first string
      * @param s2 the second string to check
@@ -238,7 +237,6 @@ class utility
             return false;
         }
     }
-
 
     /**
      * Function to find the p plindrome rimenumbers
@@ -293,12 +291,12 @@ class utility
      */
     public static function dayOfWeek($d, $m, $y)
     {
-        $y0 = floor($y - (14 - $m) / 12) +1 ;
-        $x = floor($y0 + $y0/4 - $y0/100 + $y0/400);
+        $y0 = floor($y - (14 - $m) / 12) + 1;
+        $x = floor($y0 + $y0 / 4 - $y0 / 100 + $y0 / 400);
         $m0 = ($m + 12 * floor(((14 - $m) / 12)) - 2);
-        $d0 = floor(($d + $x + floor((31*$m0) / 12)) % 7) ;
+        $d0 = floor(($d + $x + floor((31 * $m0) / 12)) % 7);
         return $d0;
-    
+
     }
 
     /**
@@ -332,81 +330,79 @@ class utility
         return (($y % 4 == 0) && ($y % 100 != 0) || ($y % 400 == 0));
     }
 
-     /**
+    /**
      * function to find the calendar
      */
     public static function calendar()
     {
-    echo "enter the month \n";
-    $m = utility::getInt();
-    if(($m<=0)&&($m> 12)) {
-    echo "enter valid month number \n";
-    /**
-     * getting interger value
-     */
-        $month = utility::getInt();
-    }
-    $date = 1;
-    echo "enter the year  \n";
-    $y = utility::getInt();
-    if($y < 1000) {
-        echo "enter valid year \n";
+        echo "enter the month \n";
+        $m = utility::getInt();
+        if (($m <= 0) && ($m > 12)) {
+            echo "enter valid month number \n";
+            /**
+             * getting interger value
+             */
+            $month = utility::getInt();
+        }
+        $date = 1;
+        echo "enter the year  \n";
         $y = utility::getInt();
-    }
-    /**
-     * getting day value from another class
-     */
-    $d0 = utility::dayOfWeek($date,$m,$y);
-    $calender = array();
-    $days =array('31','28','31','30','31','30','31','31','30','31','30','31');
-    $months =array('Jan','Feb','March','April','may','June','july','Aug','Sep','oct','Nov','Dec');
-    $week = array('Sun','Mon','Tue','Wed','Th','Fri','Sat');
-    if(utility::isLeapy($y)){
-        $days[1]=29;
-    }
-    // print_r($days);
-    /**
-     * printing -1 in 6x7 matrix
-     */
-    for($i=0;$i<6;$i++){
-        for($j=0;$j<7;$j++){
-            $calender[$i][$j]= -1;
+        if ($y < 1000) {
+            echo "enter valid year \n";
+            $y = utility::getInt();
         }
-    }
-    /**
-     * printing month names
-     */
-    echo "\t\t\t\t".$months[$m-1]." ".$y."\n";
-    
-    
-    $dateinc = 1;
-    for($i=$d0;$i<7;$i++){
-        $calender[0][$i] = $dateinc++;
-    }
-    for($i=1;$i<6;$i++){
-        for($j=0;$j<7;$j++){
-            
-            $calender[$i][$j] = $dateinc++;
+        /**
+         * getting day value from another class
+         */
+        $d0 = utility::dayOfWeek($date, $m, $y);
+        $calender = array();
+        $days = array('31', '28', '31', '30', '31', '30', '31', '31', '30', '31', '30', '31');
+        $months = array('Jan', 'Feb', 'March', 'April', 'may', 'June', 'july', 'Aug', 'Sep', 'oct', 'Nov', 'Dec');
+        $week = array('Sun', 'Mon', 'Tue', 'Wed', 'Th', 'Fri', 'Sat');
+        if (utility::isLeapy($y)) {
+            $days[1] = 29;
         }
-    }
-    for($k=0;$k<sizeof($week);$k++){
-        echo "\t".$week[$k]." ";
-    }
-    echo "\n";
-    for($i=0;$i<6;$i++){
-        for($j=0;$j<7;$j++){
-            if(($calender[$i][$j]<0)||($calender[$i][$j]>$days[$m-1])){
-                echo "\t";
-            }else if($calender[$i][$j]>0){
-                echo "\t".$calender[$i][$j]." ";
+        // print_r($days);
+        /**
+         * printing -1 in 6x7 matrix
+         */
+        for ($i = 0; $i < 6; $i++) {
+            for ($j = 0; $j < 7; $j++) {
+                $calender[$i][$j] = -1;
             }
-         }
-        echo "\n";
-    
         }
-    return $calender;
-        
+        /**
+         * printing month names
+         */
+        echo "\t\t\t\t" . $months[$m - 1] . " " . $y . "\n";
+
+        $dateinc = 1;
+        for ($i = $d0; $i < 7; $i++) {
+            $calender[0][$i] = $dateinc++;
+        }
+        for ($i = 1; $i < 6; $i++) {
+            for ($j = 0; $j < 7; $j++) {
+
+                $calender[$i][$j] = $dateinc++;
+            }
+        }
+        for ($k = 0; $k < sizeof($week); $k++) {
+            echo "\t" . $week[$k] . " ";
+        }
+        echo "\n";
+        for ($i = 0; $i < 6; $i++) {
+            for ($j = 0; $j < 7; $j++) {
+                if (($calender[$i][$j] < 0) || ($calender[$i][$j] > $days[$m - 1])) {
+                    echo "\t";
+                } else if ($calender[$i][$j] > 0) {
+                    echo "\t" . $calender[$i][$j] . " ";
+                }
+            }
+            echo "\n";
+
+        }
+        return $calender;
+
     }
 
 }
-?>

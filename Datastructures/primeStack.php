@@ -6,12 +6,11 @@
  *Date: 25/01/2019
  ***********************************************************************************************/
 
-
- /**
-  * requried to get input from another class
-  */
-require ('utility.php');
-require ('stack.php');
+/**
+ * requried to get input from another class
+ */
+require 'utility.php';
+require 'stack.php';
 echo "enter the number \n";
 
 /**
@@ -28,14 +27,14 @@ $arr = utility::primes($number);
 /**
  * printing the prime Anagram numbers
  */
-$primeAnagram =utility::printAnagrams($arr);
-$stack=new stack;
-$Stack1=new stack;
-for($i=0;$i<count($primeAnagram);$i++){
+$primeAnagram = utility::printAnagrams($arr);
+$stack = new stack;
+$Stack1 = new stack;
+for ($i = 0; $i < count($primeAnagram); $i++) {
     $stack->push($primeAnagram[$i]);
 }
-for($i=0;$i<sizeof($primeAnagram);$i++){
-   $Stack1->push($stack->pop());
+for ($i = 0; $i < sizeof($primeAnagram); $i++) {
+    $Stack1->push($stack->pop());
 }
 //print_r($arr);
 //print_r($primeAnagram);
@@ -45,4 +44,3 @@ echo "stack prime Anagrams are \n";
  * displaying the  numbers
  */
 $Stack1->display();
- 

@@ -12,5 +12,3 @@ utility::toBinary($number);
 echo "\n";
 //echo "converting binary value into decimal";
 //utility::toDecimal($strBinArr)
-
-?>

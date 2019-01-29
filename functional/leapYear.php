@@ -8,7 +8,7 @@
  ****************************************************************************/
 /**
  * requires method in Utility to take input and find leap year
-*/
+ */
 require 'utility.php';
 class LeapYear
 {
@@ -22,23 +22,16 @@ class LeapYear
              */
             if (utility::isLeapyear($year)) {
                 echo "is a leap year \n";
-            } 
-            else
-            {
+            } else {
                 echo "is not a leap year \n";
             }
 
-        }
-    
-    
-         else 
-        {
+        } else {
             echo "enter valid  year \n";
             $year = utility::getInt();
         }
     }
 
 }
-    
 
 LeapYear::leap();

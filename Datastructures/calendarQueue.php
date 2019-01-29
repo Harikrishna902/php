@@ -32,7 +32,7 @@ if ($y < 1000) {
     $y = utility::getInt();
 }
 /**
- * calling the date function and assiging to startday  
+ * calling the date function and assiging to startday
  */
 $startday = utility::dayOfWeek($date, $m, $y);
 $calender = array();
@@ -46,10 +46,10 @@ echo $startday . "\n";
 if (utility::isLeapy($y)) {
     $days[1] = 29;
 }
-for($i = 1; $i<=$days[$m - 1];$i++) {
+for ($i = 1; $i <= $days[$m - 1]; $i++) {
     $queue->enqueue($i);
 }
- /*
+/*
  * printing the month names
  */
 
@@ -57,17 +57,17 @@ echo "\t\t\t" . $months[$m - 1] . "\t" . $y;
 
 echo "\n";
 
-/* 
-* printing the week
-*/
+/*
+ * printing the week
+ */
 for ($j = 0; $j < sizeof($week); $j++) {
-    echo $week[$j] ."\t";
+    echo $week[$j] . "\t";
 }
 echo "\n";
 
 /*
  * printing the spaces in start and end, according to month we take
- * 
+ *
  */
 for ($i = 0; $i < $startday; $i++) {
     echo "\t";
@@ -75,9 +75,9 @@ for ($i = 0; $i < $startday; $i++) {
 for ($k = 0; $k < $queue->size(); $k++) {
     $value = $queue->peek();
     /*
-     * displayes the dates 
+     * displayes the dates
      */
-    echo  $queue->dequeueOne()."\t";
+    echo $queue->dequeueOne() . "\t";
     if (($value + $startday) % 7 == 0) {
         echo "\n";
     }

@@ -5,40 +5,44 @@
  *@version 2.0
  *Date 23/01/2019
  **********************************************************************************************/
-class Node{
-    /* 
-    *Data to hold
-    */
+class Node
+{
+    /*
+     *Data to hold
+     */
     public $data;
-    /* 
-    *Link to next node
-    */
+    /*
+     *Link to next node
+     */
     public $next;
 
-     /**
-      * Node constructor
-      */
-    function __construct($item){
+    /**
+     * Node constructor
+     */
+    public function __construct($item)
+    {
         $this->data = $item;
         $this->next = null;
     }
 }
-    class Queue{
+class Queue
+{
     public $front;
     public $rear;
-    private static $size =0;
+    private static $size = 0;
     /**
-     * function  to add the data to Queue 
+     * function  to add the data to Queue
      */
-    public function enqueue($data){
+    public function enqueue($data)
+    {
         $new_node = new Node($data);
 
         /**
          * checking the Queue is empty or not
          */
-        if($this->isEmpty()){
+        if ($this->isEmpty()) {
             $this->front = $new_node;
-        }else{
+        } else {
             $this->rear->next = $new_node;
         }
         $this->rear = $new_node;
@@ -50,8 +54,9 @@ class Node{
     /**
      * function to check the Queue
      */
-    public function isEmpty(){
-        if($this->front ==null ){
+    public function isEmpty()
+    {
+        if ($this->front == null) {
             return true;
         }
         /**
@@ -62,14 +67,15 @@ class Node{
     /**
      * function to remove or delete the elements from Queue
      */
-    public function dequeue(){
-        if(!$this->isEmpty()){
+    public function dequeue()
+    {
+        if (!$this->isEmpty()) {
             $val = $this->front->data;
             $this->front = $this->front->next;
-        }else{
+        } else {
             echo "underflow\n";
         }
-        if($this->front == null){
+        if ($this->front == null) {
             $rear = null;
         }
         self::$size--;
@@ -80,53 +86,55 @@ class Node{
      * function to remove or delete the elements from Queue
      * used in queueCalanedar
      */
-    public function dequeueOne(){
-        if(!$this->isEmpty()){
+    public function dequeueOne()
+    {
+        if (!$this->isEmpty()) {
             $val = $this->front->data;
             $this->front = $this->front->next;
-        }else{
+        } else {
             echo "underflow\n";
         }
-        if($this->front == null){
+        if ($this->front == null) {
             $rear = null;
         }
-       // self::$size--;
+        // self::$size--;
         return $val;
     }
-
 
     /**
      * function to return the size of Queue
      */
-    public function size(){
+    public function size()
+    {
         return self::$size;
     }
     /**
      * function to display the data
      */
-    public function display(){
+    public function display()
+    {
         $temp = $this->front;
-        while($temp!=null){
-            echo $temp->data ." ";
+        while ($temp != null) {
+            echo $temp->data . " ";
             $temp = $temp->next;
         }
     }
     /**
      * function to get the data from Queue
      */
-    public function getData(){
+    public function getData()
+    {
         $str = "";
         $current = $this->front;
-        while($current!=null){
-            $str = $str.$current->data." ";
+        while ($current != null) {
+            $str = $str . $current->data . " ";
             $current = $current->next;
         }
         return $str;
     }
     public function peek()
     {
-       return $this->front->data;
+        return $this->front->data;
     }
-    
-    } 
 
+}

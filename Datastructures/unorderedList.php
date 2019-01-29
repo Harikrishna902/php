@@ -6,30 +6,30 @@
  *Date 22/01/2019
  *****************************************************************************************************/
 
- /**
+/**
  * requried to get input from another class
  */
-require ('utility.php');
-require ('linkedList.php');
+require 'utility.php';
+require 'linkedList.php';
 class unorderdList
 {
-     /**
-     * function to read ,search, add to the list 
+    /**
+     * function to read ,search, add to the list
      */
     public static function Search()
     {
-         /**
-          * name of the file
-          */
+        /**
+         * name of the file
+         */
         $filename = "word.txt";
         $list = new linkedList();
         $file = fopen($filename, "r") or die("unable to open the file");
-        
+
         /**
-         * returns the elements from a open file 
+         * returns the elements from a open file
          */
-        $filstr= fgets($file);
-        $filearr = explode(" ",$filstr);
+        $filstr = fgets($file);
+        $filearr = explode(" ", $filstr);
         print_r($filearr);
 
         /**
@@ -40,11 +40,11 @@ class unorderdList
         }
         echo " enter the element to search \n";
         $elements = utility::getString();
-        
-         /**
-          * searching the elemnt in the list
+
+        /**
+         * searching the elemnt in the list
          *(===) used for identical values and returns true
-          */
+         */
         if ($list->Search($elements) === true) {
             echo " element found \n removing element \n";
             $list->remove($elements);
@@ -57,7 +57,7 @@ class unorderdList
         /**
          * /writing back to the file
          */
-        $file1= fopen($filename,"w");
+        $file1 = fopen($filename, "w");
         fwrite($file1, $list->getData());
     }
 }
@@ -67,4 +67,3 @@ class unorderdList
 unorderdList::Search();
 //$obj-> new unorderdList();
 //$obj->Search();
-?>

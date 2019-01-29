@@ -382,20 +382,19 @@ class utility
         return (($y % 4 == 0) && ($y % 100 != 0) || ($y % 400 == 0));
     }
 
-   /**
- * function to calculate day for year and date
- * @param month year date
- * @return : d0
- */
-public static function dayOfWeek($d, $m, $y)
-{
-    $y0 = floor($y - (14 - $m) / 12) + 1;
-    $x = floor($y0 + $y0 / 4 - $y0 / 100 + $y0 / 400);
-    $m0 = ($m + 12 * floor(((14 - $m) / 12)) - 2);
-    $d0 = floor(($d + $x + floor((31 * $m0) / 12)) % 7);
-    return $d0;
-}
-
+    /**
+     * function to calculate day for year and date
+     * @param month year date
+     * @return : d0
+     */
+    public static function dayOfWeek($d, $m, $y)
+    {
+        $y0 = floor($y - (14 - $m) / 12) + 1;
+        $x = floor($y0 + $y0 / 4 - $y0 / 100 + $y0 / 400);
+        $m0 = ($m + 12 * floor(((14 - $m) / 12)) - 2);
+        $d0 = floor(($d + $x + floor((31 * $m0) / 12)) % 7);
+        return $d0;
+    }
 
     /**
      * Function to calculate temperature from celcius to fahrenhiet and vice-versa
@@ -439,7 +438,7 @@ public static function dayOfWeek($d, $m, $y)
         $r = $R / (12 * 100);
         $power = 1 - pow(1 + $r, -$n);
         $payment = $P * $r / $power;
-        echo "the amount is:" . "\n";                           
+        echo "the amount is:" . "\n";
         echo $payment;
         echo "\n";
     }
@@ -509,42 +508,39 @@ public static function dayOfWeek($d, $m, $y)
         return (($x & 0x0F) << 4 | ($x & 0xF0) >> 4);
     }
 
-
     /**
      * function to guess the no given by user in 2^n times
      */
-    public static function search(){
-        $low = 0 ;
+    public static function search()
+    {
+        $low = 0;
         $high = 10;
-        for($i = 0 ;$i < 10 ;$i++){
-            while($low<=$high){
-                $mid = round(($low + $high)/2);
-                echo "If your no is bw ".$low." and ".$mid." press 1\n";
-                echo "If your no is bw ".$mid." and ".$high." press 2\n";
+        for ($i = 0; $i < 10; $i++) {
+            while ($low <= $high) {
+                $mid = round(($low + $high) / 2);
+                echo "If your no is bw " . $low . " and " . $mid . " press 1\n";
+                echo "If your no is bw " . $mid . " and " . $high . " press 2\n";
                 //get user no for choice
-                $s=utility::getInt();
+                $s = utility::getInt();
                 /**
                  * user enters 2 and 1 according to output
                  */
 
-                 //if low is high then the no is found
-                if($high == $mid){
-                    echo "your no is ".$high;
-                    return $high ;
-                }
-                else if($s!=1){
+                //if low is high then the no is found
+                if ($high == $mid) {
+                    echo "your no is " . $high;
+                    return $high;
+                } else if ($s != 1) {
                     $low = $mid;
-                }
-                else{
+                } else {
                     $high = $mid;
                 }
             }
-        } 
+        }
     }
 
-
     /**
-     * function to find element in using binarysearch 
+     * function to find element in using binarysearch
      */
     public static function binarySearch($n)
     {
@@ -562,16 +558,16 @@ public static function dayOfWeek($d, $m, $y)
         /**intial size of array */
         $beg = 0;
         /**
-         * length of array 
+         * length of array
          */
         $end = count($arr) - 1;
         while ($beg <= $end) {
             /**
-             * calculate mid and round 
+             * calculate mid and round
              */
             $mid = floor(($beg + $end) / 2);
             /**
-             * if mid of array is key then key is found 
+             * if mid of array is key then key is found
              */
             if ($arr[$mid] == $key) {
                 echo "key found at " . $mid . "\n";
@@ -581,7 +577,7 @@ public static function dayOfWeek($d, $m, $y)
                 $end = $mid - 1;
             } else {
                 /**
-                 * if key>arry of mid then mid+1 
+                 * if key>arry of mid then mid+1
                  */
                 $beg = $mid + 1;
             }
@@ -806,15 +802,15 @@ public static function dayOfWeek($d, $m, $y)
         }
     }
 
-     /**
-      * function for mergesort 
-      */
+    /**
+     * function for mergesort
+     */
 
     public static function mergeSort($input)
     {
         $len = count($input);
         /*
-         * if input size is 1 then return  
+         * if input size is 1 then return
          *
          */
         if (count($input) == 1) {
@@ -826,19 +822,19 @@ public static function dayOfWeek($d, $m, $y)
          */
         $mid = floor(count($input) / 2);
         /**
-         * divide array into two halves until is size is 1  
+         * divide array into two halves until is size is 1
          */
         $left = array_slice($input, 0, $mid);
         $right = array_slice($input, $mid, $len - 1);
         $left = utility::mergeSort($left);
         $right = utility::mergeSort($right);
         /**
-         * merge sort the subarrays 
+         * merge sort the subarrays
          */
         return utility::merge($left, $right);
     }
     /**
-     * function to find  merge operation 
+     * function to find  merge operation
      */
     public static function merge($left, $right)
     {
@@ -850,7 +846,7 @@ public static function dayOfWeek($d, $m, $y)
                  * The array_slice() function returns selected parts of an array.
                  * returns the values after index 1
                  */
-                
+
                 $right = array_slice($right, 1);
             } else {
                 $res[] = $left[0];

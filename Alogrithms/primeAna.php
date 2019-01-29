@@ -13,20 +13,19 @@ echo "\n";
 /**
  * calling the method to get int type
  */
-$number = utility::getInt(); 
+$number = utility::getInt();
 /**
  * calling the function
  */
- 
-$array = utility::primes($number); 
+
+$array = utility::primes($number);
 echo "\n";
- /**
-  * calling the function
-  */
- utility::palindrome($array);
+/**
+ * calling the function
+ */
+utility::palindrome($array);
 echo "\n";
 /**
  *  calling the method
  */
-utility::primeanagrams($array); 
-?>
+utility::primeanagrams($array);

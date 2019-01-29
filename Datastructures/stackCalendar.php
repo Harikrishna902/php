@@ -6,18 +6,18 @@
  *Date 29/01/2019
  ************************************************************************************************/
 
- /*
+/*
  * requried to get input from another class
  */
-require ('utility.php');
-require ('stack.php');
+require 'utility.php';
+require 'stack.php';
 $stack = new Stack();
 $stackOne = new Stack();
 // $queueWeek = new Queue();
-    echo "enter month\n";
-    $m = utility::getInt();
-    echo "enter year\n";
-    $y = utility::getInt();
+echo "enter month\n";
+$m = utility::getInt();
+echo "enter year\n";
+$y = utility::getInt();
 
 /**
  * validation for monthnumber
@@ -37,7 +37,7 @@ if ($y < 1000) {
     $y = utility::getInt();
 }
 /**
- * calling the date function and assiging to startday  
+ * calling the date function and assiging to startday
  */
 $d0 = utility::dayOfWeek($date, $m, $y);
 //$calender = array();
@@ -48,36 +48,32 @@ $week = array('Sun', 'Mon', 'Tue', 'Wed', 'Th', 'Fri', 'Sat');
 /*
  * printing the month names
  */
-    echo "\t\t\t" . $months[$m - 1] . "\t" . $y;
-    echo "\n";
+echo "\t\t\t" . $months[$m - 1] . "\t" . $y;
+echo "\n";
 
-    
-/* 
-* printing the week
-*/
+/*
+ * printing the week
+ */
 for ($j = 0; $j < sizeof($week); $j++) {
-    echo $week[$j] ."\t";
+    echo $week[$j] . "\t";
 }
 echo "\n";
 
+for ($j = 1; $j <= $days[$m - 1]; $j++) {
+    $stack->push($j);
+}
+for ($k = 0; $k < $stack->size(); $k++) {
+    $stackOne->push($stack->pop());
+}
+for ($s = 0; $s < $d0; $s++) {
+    echo "\t";
+}
+for ($i = 0; $i < $stackOne->size(); $k++) {
+    $val = $stackOne->peek();
+    echo $stackOne->pop() . "\t";
+    if (($val + $d0) % 7 == 0) {
+        echo "\n";
+    }
 
-   for($j=1;$j<=$days[$m-1];$j++){
-        $stack->push($j);
-    }
-    for($k=0;$k<$stack->size();$k++){
-        $stackOne->push($stack->pop());
-    }
-    for($s=0;$s<$d0;$s++){
-        echo "\t";
-    }
-    for($i=0;$i<$stackOne->size();$k++){
-        $val = $stackOne->peek();
-        echo $stackOne->pop()."\t";
-        if(($val+$d0)%7==0){
-            echo "\n";
-        }
-        
-    }
-    echo "\n";
-
-?>
+}
+echo "\n";

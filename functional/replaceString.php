@@ -19,4 +19,3 @@ echo "enter the string to replace: \n";
 $name = utility::getString();
 $String2 = str_replace("<<username>>", $name, $String);
 echo $String2 . "\n";
-?>

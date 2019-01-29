@@ -8,18 +8,18 @@
 class Node
 {
     /**
-     *  Link to next node 
+     *  Link to next node
      */
     public $next;
 
-    /* 
-    *Data to hold 
-    */
+    /*
+     *Data to hold
+     */
     public $data;
 
-    /** 
-     * Node constructor 
-    */
+    /**
+     * Node constructor
+     */
     public function __construct($d)
     {
         $this->data = $d;
@@ -36,7 +36,7 @@ class Stack
      * size of the stack intially
      */
     private static $size = 0;
-    
+
     /**
      * function for adding the elements to the stack
      */
@@ -96,7 +96,7 @@ class Stack
         return self::$size;
     }
     /**
-     * function to check stack is empty r not 
+     * function to check stack is empty r not
      */
     public function isEmpty()
     {

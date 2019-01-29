@@ -10,17 +10,16 @@
  * requires method in Utility to take input and find leap year
  */
 require 'utility.php';
-echo "enter the stake value :\n"; 
+echo "enter the stake value :\n";
 /**
  * calling the method to get integer value
  */
-$stake=utility::getInt(); 
+$stake = utility::getInt();
 echo "enter the goal value :\n";
 /**
  * calling the method to get integer value
  */
-$goal=utility::getInt();
+$goal = utility::getInt();
 echo "enter the number of trials :\n";
-$trials=utility::getInt();
-utility::gambler($stake,$goal,$trials); 
-?>
+$trials = utility::getInt();
+utility::gambler($stake, $goal, $trials);

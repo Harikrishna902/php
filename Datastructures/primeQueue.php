@@ -6,16 +6,16 @@
  *Date: 25/01/2019
  ******************************************************************************************************/
 
- /*
-  * requried to get input from another class
-  */
- 
+/*
+ * requried to get input from another class
+ */
+
 require 'utility.php';
 require 'queue.php';
 echo "enter the number \n";
 
 /*
-*getting the user input
+ *getting the user input
  */
 $number = utility::getInt();
 echo "primes numbers between the given range are: \n";
@@ -25,11 +25,11 @@ echo "primes numbers between the given range are: \n";
  */
 $arr = utility::primes($number);
 /**
- *calling the function from another class and storing 
+ *calling the function from another class and storing
  */
 $primeAnanagram = utility::printAnagrams($arr);
 $queue = new queue;
-for($i=0;$i<sizeof($primeAnanagram);$i++){
+for ($i = 0; $i < sizeof($primeAnanagram); $i++) {
     $queue->enqueue($primeAnanagram[$i]);
 }
 echo "\n";

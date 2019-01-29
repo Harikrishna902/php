@@ -7,7 +7,7 @@
  *@version 2.0
  *Date 20/01/2019
  ************************************************************************/
-require ('utility.php');
+require 'utility.php';
 $file = fopen("word.txt", "r");
 $filestr = fgets($file);
 $str = explode(" ", $filestr) or die("file not found");
@@ -15,8 +15,5 @@ for ($i = 0; $i < sizeof($str); $i++) {
     echo $str[$i] . " ";
     echo " \n";
 }
-echo "\n"; 
+echo "\n";
 utility::insertionSortFile($str);
-
-
-

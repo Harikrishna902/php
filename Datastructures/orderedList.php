@@ -7,29 +7,29 @@
  */
 
 //requires method in Utility to take input and find flips of
-require ('utility.php');
-require ('linkedList.php');
+require 'utility.php';
+require 'linkedList.php';
 class orderdList
 {
-     /**
-     * function to read ,search, add to the list 
+    /**
+     * function to read ,search, add to the list
      */
     public static function Search()
     {
-         /**
-          * name of the file
-          */
+        /**
+         * name of the file
+         */
         $filename = "number.txt";
         $list = new linkedList();
         /**
          * opens the file and reads the data
          */
         $file = fopen($filename, "r") or die("unable to open the file");
-        $filstr= fgets($file);
+        $filstr = fgets($file);
         /**
          * converting  string to array
          */
-        $filearr = explode(" ",$filstr);
+        $filearr = explode(" ", $filstr);
         print_r($filearr);
 
         /**
@@ -41,10 +41,10 @@ class orderdList
         echo " enter element to search \n";
         $elements = utility::getInt();
 
-         /**
-          * searching the elemnt in the list
-          *(===) used for identical values and returns true
-          */
+        /**
+         * searching the elemnt in the list
+         *(===) used for identical values and returns true
+         */
         if ($list->Search($elements) === true) {
             echo " element found \n removing element \n";
 
@@ -65,7 +65,7 @@ class orderdList
         /**
          * writing back to the file
          */
-        $file1= fopen($filename,"w");
+        $file1 = fopen($filename, "w");
         fwrite($file1, $list->getData());
     }
 }
@@ -75,4 +75,3 @@ class orderdList
 orderdList::Search();
 //$obj-> new UnorderdList();
 //$obj->Search();
-?>

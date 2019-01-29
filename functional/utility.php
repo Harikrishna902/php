@@ -160,7 +160,7 @@ class utility
         echo "the percentage of wins is \n" . ($wins / $trials * 100) . "\n";
     }
 
-    /** 
+    /**
      * function to arrange the el3ements in 2D array
      */
     public static function twoarray($rows, $cols)
@@ -192,12 +192,9 @@ class utility
         for ($i = 1; $i <= $value; $i++) {
             $harmonic = $harmonic + (1.0 / $i);
             echo "1" . "/" . $i;
-            if($i==$value)
-            {
+            if ($i == $value) {
 
-            }
-            else
-            {
+            } else {
                 echo "+";
             }
         }
@@ -222,57 +219,59 @@ class utility
             echo "enter alteast one character \n";
         }
     }
-     public static function permuation($perm,$word){
-     if(empty($word)){
-    echo $perm.$word."\n";
-     }
-    for($i=0;$i<strlen($word);$i++){
-    utility::permuation($perm.$word{$i},substr($word,0,$i).substr($word,$i+1,strlen($word)));
-        
-    }
-}
+    public static function permuation($perm, $word)
+    {
+        if (empty($word)) {
+            echo $perm . $word . "\n";
+        }
+        for ($i = 0; $i < strlen($word); $i++) {
+            utility::permuation($perm . $word{$i}, substr($word, 0, $i) . substr($word, $i + 1, strlen($word)));
 
-  
-     static $start;
-     static $stop;
-     public static function start(){
-
-         /**
-          * using static bcz Static functions and variables are referenced via self::functionName() or self::variableName
-          *if it is non static we can use 'this->'
-           */  
-         self::$start=round(microtime(true)*1000);
-     }
-     static function stop(){
-         self::$stop=round(microtime(true)*1000);
+        }
     }
-     static function elapsed(){
-         return "Time :".((self::$stop-self::$start)/1000)." seconds \n";
-     }
-     /**
+
+    static $start;
+    static $stop;
+    public static function start()
+    {
+
+        /**
+         * using static bcz Static functions and variables are referenced via self::functionName() or self::variableName
+         *if it is non static we can use 'this->'
+         */
+        self::$start = round(microtime(true) * 1000);
+    }
+    public static function stop()
+    {
+        self::$stop = round(microtime(true) * 1000);
+    }
+    public static function elapsed()
+    {
+        return "Time :" . ((self::$stop - self::$start) / 1000) . " seconds \n";
+    }
+    /**
      * Function to Store end clicktime and start click time and print elapsed time
      */
-         function Watch(){
-         echo "StopWatch \n";
-         echo "enter 1 to start \n";
-         $i=fgets(STDIN);
-         /**
-          * gets start time
-          */
-         $start=round(microtime(true)*1000);
-         echo "enter 2 to stop \n";
-         $i=fgets(STDIN);
-         /**
-          * gets stop time
-          */
-         $stop=round(microtime(true)*1000);
-         /**
-          * print elaspsed time
-          */
-         echo self::elapsed();
-     }
-     
-
+    public function Watch()
+    {
+        echo "StopWatch \n";
+        echo "enter 1 to start \n";
+        $i = fgets(STDIN);
+        /**
+         * gets start time
+         */
+        $start = round(microtime(true) * 1000);
+        echo "enter 2 to stop \n";
+        $i = fgets(STDIN);
+        /**
+         * gets stop time
+         */
+        $stop = round(microtime(true) * 1000);
+        /**
+         * print elaspsed time
+         */
+        echo self::elapsed();
+    }
 
     /**
      * Function to find if no is prime or not
@@ -319,7 +318,7 @@ class utility
             $arr[$i] = utility::getInt();
 
         }
-        
+
         $totalDistinct = 0;
         for ($i = 0; $i < sizeof($arr); $i++) {
             for ($j = $i + 1; $j < sizeof($arr); $j++) {
@@ -382,36 +381,37 @@ class utility
      * function to copoun number
      */
 
-    public static function copounnumber(){
-    $couponNo = array();
-    $totalDistinct = 0;
-    for($i=0;$i<$range;$i++){
-     $random = rand(1,($range));
-     $couponNo[$i] = $random;
-    
- }
-    $uni = array_unique($couponNo);
-    $uni1 =  array_values($uni);
-    $totalDistinct = sizeof($uni1);
-    for($i=0;$i<sizeof($uni1);$i++){
-     echo "$uni1[$i] \n";
-  }   
- echo "\n"."total distcnt numbers \n".$totalDistinct;
+    public static function copounnumber()
+    {
+        $couponNo = array();
+        $totalDistinct = 0;
+        for ($i = 0; $i < $range; $i++) {
+            $random = rand(1, ($range));
+            $couponNo[$i] = $random;
+
+        }
+        $uni = array_unique($couponNo);
+        $uni1 = array_values($uni);
+        $totalDistinct = sizeof($uni1);
+        for ($i = 0; $i < sizeof($uni1); $i++) {
+            echo "$uni1[$i] \n";
+        }
+        echo "\n" . "total distcnt numbers \n" . $totalDistinct;
 
     }
 
     /**
- * Function to calculate the distance between two points on cartesian plane and print the distance
- */
-      public static function dist()
-{
-    echo "Enter value of x ";
-    $x = utility::getInt();
-    echo "Enter value of y ";
-    $y = utility::getInt();
-    $sqrt = sqrt(($x * $x) + ($y * $y));
-    echo "distance is " . $sqrt . "\n";
-}
+     * Function to calculate the distance between two points on cartesian plane and print the distance
+     */
+    public static function dist()
+    {
+        echo "Enter value of x ";
+        $x = utility::getInt();
+        echo "Enter value of y ";
+        $y = utility::getInt();
+        $sqrt = sqrt(($x * $x) + ($y * $y));
+        echo "distance is " . $sqrt . "\n";
+    }
 
     public static function primeFactors($number)
     {
@@ -432,4 +432,3 @@ class utility
         }
     }
 }
-?>

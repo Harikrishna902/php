@@ -7,7 +7,7 @@
  *@version 2.0
  *Date 20/01/2019
  ********************************************************************************/
-require ('utility.php');
+require 'utility.php';
 /**
  * reading from file
  */
@@ -20,4 +20,3 @@ for ($i = 0; $i < sizeof($str); $i++) {
     echo $str[$i] . " ";
 }
 utility::binarySFile($str);
-?>
