@@ -1,10 +1,11 @@
 <?php
  /**********
+  * filename:dayOfWeek.ph
   *function to find the day of a year
   *@authour harikrishna
   *@version 2.0
   *Date 17/01/2019
-  */
+  **********************************************************************/
   require('utility.php');       
   class DayOfWeek
   {
@@ -20,15 +21,21 @@
           $m = utility::getInt();
           echo "Enter year number \n";
           $y = utility::getInt();
-          //calculating the day of week 
+          /**
+           * calculating the day of week 
+           */
           $d0 = utility::dayOfWeek($d, $m, $y);
-          //prints the day week
+          /**
+           * prints the day week
+           */
           $d1 = "Sunday Monday Tuesday Wednesday Thursday Friday Saturday";
           $day = explode(" ", $d1);
           echo "day on given date is " . $day[$d0] . "\n";
       }
   }
-  //calling main funtion to test
+  /**
+   * calling main funtion to test
+   */
   //DayOf::main();
   $obj = new DayOfWeek();
   $obj->main();

@@ -116,35 +116,53 @@ class utility
     {
         $wins = 0;
         $bets = 0;
-        //iterating the loop from 1 to the no of trials user have entered
+        /**
+         * iterating the loop from 1 to the no of trials user have entered
+         */
         for ($index = 1; $index <= $trials; $index++) {
-            // assigning the user stake value to cash
+            /**
+             * assigning the user stake value to cash
+             */
             $cash = $stake;
-            //checking the condition
+            /**
+             * checking the condition
+             */
             while ($cash > 0 && $cash < $goal) {
                 $bets++;
-                // genearting the random value by using rand method between 0 and 1
+                /**
+                 * genearting the random value by using rand method between 0 and 1
+                 */
                 $value = rand(0, 1);
-                echo $value . " \n";
+                $value . " \n";
                 if ($value < 0.5) {
-                    //incrementing the cash value;
+                    /**
+                     * incrementing the cash value;
+                     */
                     $cash++;
                 } else {
-                    // decrementing the cash value;
+                    /**
+                     * decrementing the cash value;
+                     */
                     $cash--;
                 }
             }
-            // comparing the cash and goal values
+            /**
+             * comparing the cash and goal values
+             */
             if ($cash == $goal) {
                 $wins++;
             }
         }
-        //printing the no of wins of trials
+        /**
+         * printing the no of wins of trials
+         */
         echo " the total number of wins  " . $wins . " of trials " . $trials . "\n";
         echo "the percentage of wins is \n" . ($wins / $trials * 100) . "\n";
     }
 
-    /** function to arrange the el3ements in 2D array*/
+    /** 
+     * function to arrange the el3ements in 2D array
+     */
     public static function Twoarray($rows, $cols)
     {
         for ($i = 0; $i < $rows; $i++) {
@@ -194,7 +212,9 @@ class utility
     public static function stringPermutation($str)
     {
         echo "permution words are \n";
-        //trim=removing characters from both sides
+        /**
+         * trim=removing characters from both sides
+         */
         $str1 = trim($str);
         if (!empty($str)) {
             utility::permuation("", $str1);
@@ -205,11 +225,54 @@ class utility
      public static function permuation($perm,$word){
      if(empty($word)){
     echo $perm.$word."\n";
+     }
     for($i=0;$i<strlen($word);$i++){
     utility::permuation($perm.$word{$i},substr($word,0,$i).substr($word,$i+1,strlen($word)));
-        }
+        
     }
 }
+
+  
+     static $start;
+     static $stop;
+     public static function start(){
+
+         /**
+          * using static bcz Static functions and variables are referenced via self::functionName() or self::variableName
+          *if it is non static we can use 'this->'
+           */  
+         self::$start=round(microtime(true)*1000);
+     }
+     static function stop(){
+         self::$stop=round(microtime(true)*1000);
+    }
+     static function elapsed(){
+         return "Time :".((self::$stop-self::$start)/1000)." seconds \n";
+     }
+     /**
+     * Function to Store end clicktime and start click time and print elapsed time
+     */
+         function Watch(){
+         echo "StopWatch \n";
+         echo "enter 1 to start \n";
+         $i=fgets(STDIN);
+         /**
+          * gets start time
+          */
+         $start=round(microtime(true)*1000);
+         echo "enter 2 to stop \n";
+         $i=fgets(STDIN);
+         /**
+          * gets stop time
+          */
+         $stop=round(microtime(true)*1000);
+         /**
+          * print elaspsed time
+          */
+         echo self::elapsed();
+     }
+     
+
 
     /**
      * Function to find if no is prime or not
@@ -252,9 +315,11 @@ class utility
         $arr = array();
         echo "enter the elements \n";
         for ($i = 0; $i < $n; $i++) {
-            //enter the elements to array
+            //enter the elements to array$
+            $arr[$i] = utility::getInt();
+
         }
-        $arr[$i] = utility::getInt();
+        
         $totalDistinct = 0;
         for ($i = 0; $i < sizeof($arr); $i++) {
             for ($j = $i + 1; $j < sizeof($arr); $j++) {
@@ -281,7 +346,7 @@ class utility
     /**
      * prints Power of 2
      */
-    public static function powersof2($number)
+    public static function powersofTwo($number)
     {
         for ($index = 1; $index <= $number; $index++) {
             echo (pow(2, $index) . "\n"); // calcuating the power value
@@ -313,6 +378,40 @@ class utility
         echo "heads percentage" . $headsPercent . PHP_EOL;
 
     }
+    /**
+     * function to copoun number
+     */
+
+    public static function copounnumber(){
+        $couponNo = array();
+    $totalDistinct = 0;
+    for($i=0;$i<$range;$i++){
+     $random = rand(1,($range));
+     $couponNo[$i] = $random;
+    
+ }
+    $uni = array_unique($couponNo);
+    $uni1 =  array_values($uni);
+    $totalDistinct = sizeof($uni1);
+    for($i=0;$i<sizeof($uni1);$i++){
+     echo "$uni1[$i] \n";
+  }   
+ echo "\n"."total distcnt numbers \n".$totalDistinct;
+
+    }
+
+    /**
+ * Function to calculate the distance between two points on cartesian plane and print the distance
+ */
+      public static function dist()
+{
+    echo "Enter value of x ";
+    $x = utility::getInt();
+    echo "Enter value of y ";
+    $y = utility::getInt();
+    $sqrt = sqrt(($x * $x) + ($y * $y));
+    echo "distance is " . $sqrt . "\n";
+}
 
     public static function primeFactors($number)
     {

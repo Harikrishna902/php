@@ -4,14 +4,14 @@
 * @author harikrishna
 * @version 1.0
 *Date: 25/01/2019
-****************************************************************************/
+***************************************************************************************************/
 
 /**
   * requried to get input from another class
   */
 
 require('utility.php');
-require('Queue.php');
+require('queue.php');
 
  /**
   * get prime number 0 to 1000

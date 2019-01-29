@@ -1,10 +1,11 @@
 <?php
 /**********
-  *
+ * filename:quadratic.php
+  *program to find the roots of the equation a*x*x + b*x + c. 
   *@authour harikrishna
   *@version 2.0
   *Date 16/01/2019
-  */
+  ****************************************************************************/
  //requires method in Utility to take input
  require('utility.php');
  class Quadratic{
@@ -21,13 +22,13 @@
         $a = utility::getInt();
         $b = utility::getInt();
         $c = utility::getInt();
+        /**
+         * calling the roots function
+         */
         utility::roots($a,$b,$c);
-    
-
-//callin the runner function
-
     }
- }
+}
+
 //  Quadratic::calc();
 $obj = new Quadratic();
 $obj->calc();

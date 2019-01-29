@@ -264,12 +264,18 @@ class utility
      */
     public static function insertionSort($arr)
     {
-        //gets the size of array
+        /**
+         * gets the size of array
+         */
         $size = count($arr);
         for ($i = 1; $i < $size; $i++) {
-            // getting value for back element
+            /**
+             *  getting value for back element
+             */
             $j = ($i - 1);
-            //saving it in temperary variable;
+            /**
+             * saving it in temperary variable;
+             */
             $temp = $arr[$i];
             while ($arr[$j] > $temp && $j >= 0) {
                 $arr[$j + 1] = $arr[$j];
@@ -362,7 +368,7 @@ class utility
      * @param chtemp the character containing the c or f for temp
      * @return conv the converted temperature
      */
-    public static function tempconv($temp, $chtemp)
+    public static function tempConv($temp, $chtemp)
     {
         if (strpos($chtemp, "c") === false && strpos($chtemp, "C") === false) {
             $conv = ($temp * 9 / 5) + 32;
@@ -397,7 +403,7 @@ class utility
         $r = $R / (12 * 100);
         $power = 1 - pow(1 + $r, -$n);
         $payment = $P * $r / $power;
-        echo "the amount is:" . "\n";
+        echo "the amount is:" . "\n";                           
         echo $payment;
         echo "\n";
     }
@@ -410,7 +416,7 @@ class utility
         while ($money > 0) {
             while ($money >= $array1[$index]) {
                 $notes = floor($money / $array1[$index]);
-                echo $array1[$index] . "notes are" . $notes . "\n";
+                echo $array1[$index] . " notes are " . $notes . "\n";
                 $money = floor($money % $array1[$index]);
             }
             $index++;
@@ -467,7 +473,43 @@ class utility
         return (($x & 0x0F) << 4 | ($x & 0xF0) >> 4);
     }
 
-    /**function to find element in using binarysearch */
+
+    /**
+     * function to guess the no given by user in 2^n times
+     */
+    public static function search(){
+        $low = 0 ;
+        $high = 10;
+        for($i = 0 ;$i < 10 ;$i++){
+            while($low<=$high){
+                $mid = round(($low + $high)/2);
+                echo "If your no is bw ".$low." and ".$mid." press 1\n";
+                echo "If your no is bw ".$mid." and ".$high." press 2\n";
+                //get user no for choice
+                $s=utility::getInt();
+                /**
+                 * user enters 2 and 1 according to output
+                 */
+
+                 //if low is high then the no is found
+                if($high == $mid){
+                    echo "your no is ".$high;
+                    return $high ;
+                }
+                else if($s!=1){
+                    $low = $mid;
+                }
+                else{
+                    $high = $mid;
+                }
+            }
+        } 
+    }
+
+
+    /**
+     * function to find element in using binarysearch 
+     */
     public static function binarySearch($n)
     {
         echo "1 : Binaray search\n";
@@ -483,12 +525,18 @@ class utility
         $key = utility::getInt();
         /**intial size of array */
         $beg = 0;
-        /**length of array */
+        /**
+         * length of array 
+         */
         $end = count($arr) - 1;
         while ($beg <= $end) {
-            /**calculate mid and round */
+            /**
+             * calculate mid and round 
+             */
             $mid = floor(($beg + $end) / 2);
-            /**if mid of array is key then key is found */
+            /**
+             * if mid of array is key then key is found 
+             */
             if ($arr[$mid] == $key) {
                 echo "key found at " . $mid . "\n";
                 break;
@@ -496,7 +544,9 @@ class utility
             } else if ($key < $arr[$mid]) {
                 $end = $mid - 1;
             } else {
-                /**if key>arry of mid then mid+1 */
+                /**
+                 * if key>arry of mid then mid+1 
+                 */
                 $beg = $mid + 1;
             }
         }
@@ -719,25 +769,41 @@ class utility
             }
         }
     }
+
+     /**
+      * function for mergesort 
+      */
+
     public static function mergeSort($input)
     {
         $len = count($input);
-        /**if input size is 1 then return  */
+        /*
+         * if input size is 1 then return  
+         *
+         */
         if (count($input) == 1) {
             return $input;
         }
 
-        /**calculate mid */
+        /**
+         * calculate mid
+         */
         $mid = floor(count($input) / 2);
-        /**divide array into two halves until is size is 1 */
+        /**
+         * divide array into two halves until is size is 1  
+         */
         $left = array_slice($input, 0, $mid);
         $right = array_slice($input, $mid, $len - 1);
         $left = utility::mergeSort($left);
         $right = utility::mergeSort($right);
-        /**merge sort the subarrays */
+        /**
+         * merge sort the subarrays 
+         */
         return utility::merge($left, $right);
     }
-    /**function to find  merge operation */
+    /**
+     * function to find  merge operation 
+     */
     public static function merge($left, $right)
     {
         $res = array();

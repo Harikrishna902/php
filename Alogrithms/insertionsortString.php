@@ -1,11 +1,12 @@
 <?php
 /**********
+ * filename:insertionSortString.php
  *function Reads in strings from standard input and prints them in sorted order.
  *Uses insertion sort.
  *@authour harikrishna
  *@version 2.0
  *Date 20/01/2019
- */
+ ************************************************************************/
 require ('utility.php');
 $file = fopen("hary.txt", "r");
 $filestr = fgets($file);

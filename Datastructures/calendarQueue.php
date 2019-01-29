@@ -5,7 +5,7 @@
  *@authour harikrishna
  *@version 2.0
  *Date 28/01/2019
- */
+ ******************************************************************************************/
 /*
  * requried to get input from another class
  */
@@ -77,10 +77,10 @@ for ($k = 0; $k < $queue->size(); $k++) {
     /*
      * displayes the dates 
      */
-    echo  $queue->dequeue()."\t";
+    echo  $queue->dequeueOne()."\t";
     if (($value + $startday) % 7 == 0) {
         echo "\n";
     }
 
-   // echo "\n";
+    //echo "\n";
 }

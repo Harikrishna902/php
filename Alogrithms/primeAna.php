@@ -1,5 +1,6 @@
 <?php
 /**********
+ * filename:primeAna.php
  *function Reads in strings from standard input and prints them in sorted order.
  *Uses insertion sort.
  *@authour harikrishna
@@ -9,14 +10,23 @@
 require 'utility.php';
 echo "enter the range ";
 echo "\n";
-// calling the method to get int type
+/**
+ * calling the method to get int type
+ */
 $number = utility::getInt(); 
-// calling the function
+/**
+ * calling the function
+ */
+ 
 $array = utility::primes($number); 
 echo "\n";
- // calling the function
+ /**
+  * calling the function
+  */
  utility::palindrome($array);
 echo "\n";
-// calling the method
+/**
+ *  calling the method
+ */
 utility::primeanagrams($array); 
 ?>

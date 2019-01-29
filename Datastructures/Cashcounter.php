@@ -1,10 +1,10 @@
 <?php
-/**********
+/****************************************************************************************
  *Program which creates Banking Cash Counter where people come in to deposit Cash and withdraw Cash.
  *@authour harikrishna
  *@version 2.0
  *Date 23/01/2019
- */
+ ************************************************************************************************/
 
 require 'utility.php';
 require 'Queue.php';

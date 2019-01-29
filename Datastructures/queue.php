@@ -77,6 +77,25 @@ class Node{
     }
 
     /**
+     * function to remove or delete the elements from Queue
+     * used in queueCalanedar
+     */
+    public function dequeueOne(){
+        if(!$this->isEmpty()){
+            $val = $this->front->data;
+            $this->front = $this->front->next;
+        }else{
+            echo "underflow\n";
+        }
+        if($this->front == null){
+            $rear = null;
+        }
+       // self::$size--;
+        return $val;
+    }
+
+
+    /**
      * function to return the size of Queue
      */
     public function size(){

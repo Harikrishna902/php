@@ -27,7 +27,7 @@ $str = utility::getString();
 $str1 = str_split($str);
 
 /**
-*adding from front and displaying forward and 
+*adding from rear and displaying forward and 
 *chacking simultaneously is they are same or not
 */
 for($i=0;$i<sizeof($str1);$i++){
@@ -45,7 +45,9 @@ for($i=0;$i<sizeof($str1);$i++){
     $string=$string.$deq->removeRear();
 }
 echo $string."\n";
-
+/**
+ * comparing both the strings
+ */
 if($str==$string){
     echo "String is palindrome \n";
      echo  "true \n";

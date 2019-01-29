@@ -32,7 +32,10 @@
   }
    $linkedListOne->display();
    echo "\n";
-  $arr = $linkedListOne->llToArr();//convering linkedlist to array
+   /**
+    * convering linkedlist to array
+    */
+  $arr = $linkedListOne->llToArr();
   for($i=0;$i<2;$i++){
       for($j=0;$j<170;$j++){
           $twoDArr[$i][$j] = -2;
