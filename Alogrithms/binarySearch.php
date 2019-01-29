@@ -11,7 +11,7 @@ require ('utility.php');
 /**
  * reading from file
  */
-$file = fopen("hary.txt", "r") or die("file not found");
+$file = fopen("word.txt", "r") or die("file not found");
 // echo fgets($file);
 $fileString = fgets($file);
 // echo $fileString;

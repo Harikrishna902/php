@@ -1,6 +1,6 @@
 <?php
  /**********
-  * filename:sqrt.php
+  *filename:sqrt.php
   *function to take user inputs and check the strings are anagrams or not
   *@authour harikrishna
   *@version 2.0

@@ -8,7 +8,7 @@
  *Date 20/01/2019
  ************************************************************************/
 require ('utility.php');
-$file = fopen("hary.txt", "r");
+$file = fopen("word.txt", "r");
 $filestr = fgets($file);
 $str = explode(" ", $filestr) or die("file not found");
 for ($i = 0; $i < sizeof($str); $i++) {

@@ -10,8 +10,8 @@ require ('utility.php');
 /**
  * reading from file
  */
-$myfile = fopen("hari143.txt", "r") or die("Unable to open file!");
-$Str = fread($myfile, filesize("hari143.txt"));
+$myfile = fopen("number.txt", "r") or die("Unable to open file!");
+$Str = fread($myfile, filesize("number.txt"));
 echo $Str;
 echo "\n";
 $arr = array();
