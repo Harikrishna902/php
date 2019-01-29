@@ -163,7 +163,7 @@ class utility
     /** 
      * function to arrange the el3ements in 2D array
      */
-    public static function Twoarray($rows, $cols)
+    public static function twoarray($rows, $cols)
     {
         for ($i = 0; $i < $rows; $i++) {
             for ($j = 0; $j < $cols; $j++) {

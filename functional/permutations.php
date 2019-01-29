@@ -1,6 +1,6 @@
 <?php
 /**********
- * filemane:permutations.php
+ * filename:permutations.php
  *function to find the permutation of a String 
  *@authour harikrishna
  *@version 2.0
