@@ -13,5 +13,5 @@ require('utility.php');
 /**
  * calling the function
  */
-utility::Calendar();
+utility::calendar();
 ?>

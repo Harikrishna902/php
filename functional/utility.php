@@ -215,9 +215,9 @@ class utility
         /**
          * trim=removing characters from both sides
          */
-        $str1 = trim($str);
+        $strOne = trim($str);
         if (!empty($str)) {
-            utility::permuation("", $str1);
+            utility::permuation("", $strOne);
         } else {
             echo "enter alteast one character \n";
         }
@@ -383,7 +383,7 @@ class utility
      */
 
     public static function copounnumber(){
-        $couponNo = array();
+    $couponNo = array();
     $totalDistinct = 0;
     for($i=0;$i<$range;$i++){
      $random = rand(1,($range));

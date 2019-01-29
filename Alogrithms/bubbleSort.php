@@ -1,6 +1,6 @@
 <?php
-/**********
- * filename:bubbleSort.php
+/************************************************************************************************
+ *filename:bubbleSort.php
  *function to Reads in integers prints them in sorted order using Bubble Sort
  *@authour harikrishna
  *@version 2.0
@@ -16,7 +16,6 @@ echo $Str;
 echo "\n";
 $arr = array();
 $arr = explode(" ", "$Str");
-
 echo " after sorting the elements are \n";
 $output = utility::bubbleSortInt($arr);
 print_r($output);

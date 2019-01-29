@@ -109,11 +109,11 @@ class utility
         $len1 = strlen($s1);
         $len2 = strlen($s2);
         if ($len1 == $len2) {
-            $array1 = str_split($s1);
+            $arrayOne = str_split($s1);
             $array2 = str_split($s2);
-            sort($array1);
+            sort($arrayOne);
             sort($array2);
-            $s3 = implode("", $array1);
+            $s3 = implode("", $arrayOne);
             $s4 = implode("", $array2);
             if ($s3 == $s4) {
                 echo " strings are anagram to each other" . "\n";
@@ -143,19 +143,29 @@ class utility
     public static function primes($number)
     {
         $i = 0;
-        // declaring an array
+        /**
+         * declaring an array
+         */
         $primesnumbers = array();
-        //iterations through the loop
+        /**
+         * iterations through the loop
+         */
         for ($indexi = 1; $indexi <= $number; $indexi++) {
-            //used to check the status of a number
+            /**
+             * used to check the status of a number
+             */
             $count = 0;
             for ($indexj = $indexi; $indexj >= 1; $indexj--) {
-                // condition of primenumber
+                /**
+                 *  condition of primenumber
+                 */
                 if ($indexi % $indexj == 0) {
                     $count++;
                 }
             }
-            //equating with 2
+            /**
+             * equating with 2
+             */
             if ($count == 2) {
                 $primesnumbers[$i] = $indexi;
                 $i++;
@@ -202,9 +212,9 @@ class utility
         for ($indexi = 0; $indexi < sizeof($prime); $indexi++) {
             for ($indexj = $indexi + 1; $indexj < sizeof($prime); $indexj++) {
                 $num = $prime[$indexj];
-                $array1 = str_split("$num");
-                sort($array1);
-                $rev = implode("", $array1);
+                $arrayOne = str_split("$num");
+                sort($arrayOne);
+                $rev = implode("", $arrayOne);
                 if ($prime[$indexi] == $rev) {
                     echo $prime[$indexi] . " ";
                     echo $prime[$indexj] . " ";
@@ -340,26 +350,52 @@ class utility
         }
         return $arr;
     }
+
     /**
-     * static function calculating day of week using below formula and returning it
-     *
-     * @return d0 the day of the week
+     * function to find the leap y
      */
-    public static function dayOfWeek($d, $m, $y)
+
+    public static function leap()
     {
-        if ($d == 0 && $d > 31) {
-            echo "invalid number";
-        } else if ($m == 0 && $m > 12) {
-            echo "invalid month number";
-        } else if ($y == 0) {
-            echo "invalid year ";
+        //echo "enter the y \n";
+        //$y = utility::getInt();
+        if (strlen((String) $y) == 4) {
+            //calling the function fron Utility class
+            if (utility::isLeapy($y)) {
+                echo "is a leap y \n";
+            } else {
+                echo "is not a leap y \n";
+            }
+
+        } else {
+            echo "enter valid  y";
         }
-        $y0 = floor($y - (14 - $m) / 12) + 1;
-        $x = floor($y0 + $y0 / 4 - $y0 / 100 + $y0 / 400);
-        $m0 = ($m + 12 * floor(((14 - $m) / 12)) - 2);
-        $d0 = floor(($d + $x + floor((31 * $m0) / 12)) % 7);
-        return $d0;
     }
+
+    //Leapy::leap();
+
+    /**
+     * function to find the leap y
+     */
+    public static function isLeapy($y)
+    {
+        return (($y % 4 == 0) && ($y % 100 != 0) || ($y % 400 == 0));
+    }
+
+   /**
+ * function to calculate day for year and date
+ * @param month year date
+ * @return : d0
+ */
+public static function dayOfWeek($d, $m, $y)
+{
+    $y0 = floor($y - (14 - $m) / 12) + 1;
+    $x = floor($y0 + $y0 / 4 - $y0 / 100 + $y0 / 400);
+    $m0 = ($m + 12 * floor(((14 - $m) / 12)) - 2);
+    $d0 = floor(($d + $x + floor((31 * $m0) / 12)) % 7);
+    return $d0;
+}
+
 
     /**
      * Function to calculate temperature from celcius to fahrenhiet and vice-versa
@@ -410,14 +446,14 @@ class utility
     /**
      * function to calculate the notes using vending machine
      */
-    public static function calcnotes($array1, $money)
+    public static function calcnotes($arrayOne, $money)
     {
         $index = 0;
         while ($money > 0) {
-            while ($money >= $array1[$index]) {
-                $notes = floor($money / $array1[$index]);
-                echo $array1[$index] . " notes are " . $notes . "\n";
-                $money = floor($money % $array1[$index]);
+            while ($money >= $arrayOne[$index]) {
+                $notes = floor($money / $arrayOne[$index]);
+                echo $arrayOne[$index] . " notes are " . $notes . "\n";
+                $money = floor($money % $arrayOne[$index]);
             }
             $index++;
         }
@@ -810,12 +846,17 @@ class utility
         while (count($left) > 0 && count($right) > 0) {
             if ($left[0] > $right[0]) {
                 $res[] = $right[0];
-                //The array_slice() function returns selected parts of an array.
-                //returns the values after index 1
+                /**
+                 * The array_slice() function returns selected parts of an array.
+                 * returns the values after index 1
+                 */
+                
                 $right = array_slice($right, 1);
             } else {
                 $res[] = $left[0];
-                //returns the values after index 1
+                /**
+                 * returns the values after index 1
+                 */
                 $left = array_slice($left, 1);
             }
         }

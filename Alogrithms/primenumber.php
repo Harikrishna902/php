@@ -7,11 +7,11 @@
   *Date 17/01/2019
   **********************************************************************/
   require('utility.php'); 
- echo "enter to number to find primes:";
+ echo "enter to number to find primes: \n";
  $number=utility::getInt();
  /**
   * calling prime class
   */
-$array2= utility::primes($number);
+$arraytwo= utility::primes($number);
 
 ?>

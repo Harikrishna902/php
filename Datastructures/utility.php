@@ -305,7 +305,7 @@ class utility
      * function to find the leap y
      */
 
-    public function leap()
+    public static function leap()
     {
         //echo "enter the y \n";
         //$y = utility::getInt();
