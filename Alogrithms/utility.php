@@ -92,8 +92,8 @@ class utility
         $size = utility::getInt();
         $arr = array();
         echo "enter array value ";
-        for ($i = 0; $i < $size; $i++) {
-            $arr[$i] = utility::getInt();
+        for ($index = 0; $index < $size; $index++) {
+            $arr[$index] = utility::getInt();
         }
         return $arr;
     }
@@ -104,17 +104,17 @@ class utility
      * @return true/false if anagrram or not
      *
      */
-    public static function isAnagram($s1, $s2)
+    public static function isAnagram($sOne, $sTwo)
     {
-        $len1 = strlen($s1);
-        $len2 = strlen($s2);
+        $len1 = strlen($sOne);
+        $len2 = strlen($sTwo);
         if ($len1 == $len2) {
-            $arrayOne = str_split($s1);
-            $array2 = str_split($s2);
+            $arrayOne = str_split($sOne);
+            $arrayTwo = str_split($sTwo);
             sort($arrayOne);
-            sort($array2);
+            sort($arrayTwo);
             $s3 = implode("", $arrayOne);
-            $s4 = implode("", $array2);
+            $s4 = implode("", $arrayTwo);
             if ($s3 == $s4) {
                 echo " strings are anagram to each other" . "\n";
             }
@@ -130,8 +130,8 @@ class utility
      */
     public static function isPrime($n)
     {
-        for ($i = 2; $i <= $n / 2; $i++) {
-            if ($n % $i == 0) {
+        for ($index = 2; $index <= $n / 2; $index++) {
+            if ($n % $index == 0) {
                 return false;
             }
         }
@@ -142,7 +142,7 @@ class utility
      */
     public static function primes($number)
     {
-        $i = 0;
+        $index = 0;
         /**
          * declaring an array
          */
@@ -167,8 +167,8 @@ class utility
              * equating with 2
              */
             if ($count == 2) {
-                $primesnumbers[$i] = $indexi;
-                $i++;
+                $primesnumbers[$index] = $indexi;
+                $index++;
             }
         }
         for ($index = 0; $index < sizeof($primesnumbers); $index++) {
@@ -184,7 +184,7 @@ class utility
     public static function palindrome($primearray)
     {
         $rev = 0;
-        $i = 0;
+        $index = 0;
         echo " palindromes are: \n";
         for ($indexi = 0; $indexi < sizeof($primearray); $indexi++) {
             $num = $primearray[$indexi];
@@ -208,7 +208,7 @@ class utility
     public static function primeanagrams($prime)
     {
         echo "  prime anagrams are \n:";
-        $i = 0;
+        $index = 0;
         for ($indexi = 0; $indexi < sizeof($prime); $indexi++) {
             for ($indexj = $indexi + 1; $indexj < sizeof($prime); $indexj++) {
                 $num = $prime[$indexj];
@@ -231,9 +231,9 @@ class utility
     {
         sort($arr);
         $size = count($arr);
-        for ($i = 0; $i < $size; $i++) {
-            if ($arr[$i] == $n) {
-                return $i;
+        for ($index = 0; $index < $size; $index++) {
+            if ($arr[$index] == $n) {
+                return $index;
             }
         }
         return false;
@@ -278,15 +278,15 @@ class utility
          * gets the size of array
          */
         $size = count($arr);
-        for ($i = 1; $i < $size; $i++) {
+        for ($index = 1; $index < $size; $index++) {
             /**
              *  getting value for back element
              */
-            $j = ($i - 1);
+            $j = ($index - 1);
             /**
              * saving it in temperary variable;
              */
-            $temp = $arr[$i];
+            $temp = $arr[$index];
             while ($arr[$j] > $temp && $j >= 0) {
                 $arr[$j + 1] = $arr[$j];
                 $j--;
@@ -304,9 +304,9 @@ class utility
      */
     public static function insertionSortFile($arr)
     {
-        for ($i = 1; $i < sizeof($arr); $i++) {
-            $key = $arr[$i];
-            $j = $i - 1;
+        for ($index = 1; $index < sizeof($arr); $index++) {
+            $key = $arr[$index];
+            $j = $index - 1;
             while ($j >= 0) {
                 if (strcmp($arr[$j], $key) < 0) {
                     break;
@@ -317,8 +317,8 @@ class utility
             $arr[$j + 1] = $key;
         }
         echo "After sorting the elements in the file \n";
-        for ($i = 0; $i < sizeof($arr); $i++) {
-            echo $arr[$i] . "\n";
+        for ($index = 0; $index < sizeof($arr); $index++) {
+            echo $arr[$index] . "\n";
         }
     }
     /**
@@ -334,17 +334,17 @@ class utility
         $temp;
         // Traverse through all array elements
         for ($c = 0; $c < $n - 1; $c++) {
-            //for ($i = 0; $i < sizeof($arr); $i++) {
+            //for ($index = 0; $index < sizeof($arr); $index++) {
             // Last i elements are already in place
-            for ($i = 0; $i < $n - 2; $i++) {
-                //for ($j = $i + 1; $j < sizeof($arr); $j++) {
+            for ($index = 0; $index < $n - 2; $index++) {
+                //for ($j = $index + 1; $j < sizeof($arr); $j++) {
                 // traverse the array from 0 to n-i-1
                 // Swap if the element found is greater than previous element
                 // than the next element
-                if ($arr[$i] > $arr[$i + 1]) {
-                    $temp = $arr[$i];
-                    $arr[$i] = $arr[$i + 1];
-                    $arr[$i + 1] = $temp;
+                if ($arr[$index] > $arr[$index + 1]) {
+                    $temp = $arr[$index];
+                    $arr[$index] = $arr[$index + 1];
+                    $arr[$index + 1] = $temp;
                 }
             }
         }
@@ -459,26 +459,26 @@ class utility
     }
     /**
      * Function to convert decimal to binary
-     *
+     * 
      * @param integer the decimal number
      * @return bin the binary nomber
      */
     public static function toBinary($num)
     {
         $str = array();
-        $i = 0;
+        $index = 0;
         echo "Binary value of " . "$num \n";
         while ($num > 0) {
             $rem = floor($num % 2);
-            // array_push($str, $i);
+            // array_push($str, $index);
             $num = floor($num / 2);
-            $str[$i] = $rem;
-            $i++;
+            $str[$index] = $rem;
+            $index++;
         }
 
         $new = array_reverse($str);
-        for ($i = 0; $i < sizeof($new); $i++) {
-            echo $new[$i] . " ";
+        for ($index = 0; $index < sizeof($new); $index++) {
+            echo $new[$index] . " ";
         }
         return $new;
     }
@@ -493,8 +493,8 @@ class utility
         $newStr = strrev($strBinArr);
         $strBinArr = str_split($newStr);
         $res = 0;
-        for ($i = 0; $i < sizeof($strBinArr); $i++) {
-            $res = $res + $strBinArr[$i] * pow(2, $i);
+        for ($index = 0; $index < sizeof($strBinArr); $index++) {
+            $res = $res + $strBinArr[$index] * pow(2, $index);
         }
         echo "\n decimal value \n";
         echo $res . "\n";
@@ -515,7 +515,7 @@ class utility
     {
         $low = 0;
         $high = 10;
-        for ($i = 0; $i < 10; $i++) {
+        for ($index = 0; $index < 10; $index++) {
             while ($low <= $high) {
                 $mid = round(($low + $high) / 2);
                 echo "If your no is bw " . $low . " and " . $mid . " press 1\n";
@@ -548,8 +548,8 @@ class utility
         $start = utility::startTime();
         $arr = array();
         echo "enter element \n";
-        for ($i = 0; $i < $n; $i++) {
-            $arr[$i] = utility::getInt();
+        for ($index = 0; $index < $n; $index++) {
+            $arr[$index] = utility::getInt();
         }
         sort($arr);
         print_r($arr);
@@ -598,9 +598,9 @@ class utility
         $start = utility::startTime();
         $arr = array();
         echo "enter element in string \n";
-        for ($i = 0; $i < $n; $i++) {
+        for ($index = 0; $index < $n; $index++) {
             /**enter elements into array */
-            $arr[$i] = utility::getStringArray();
+            $arr[$index] = utility::getStringArray();
         }
         sort($arr);
         print_r($arr);
@@ -635,21 +635,21 @@ class utility
         $start = utility::startTime();
         $arr = array();
         echo "enter element \n";
-        for ($i = 0; $i < $n; $i++) {
-            $arr[$i] = utility::getInt();
+        for ($index = 0; $index < $n; $index++) {
+            $arr[$index] = utility::getInt();
         }
         $len = sizeof($arr);
-        for ($i = 1; $i < $len; $i++) {
-            $key = $arr[$i];
-            $j = $i - 1;
+        for ($index = 1; $index < $len; $index++) {
+            $key = $arr[$index];
+            $j = $index - 1;
             while ($j >= 0 && $arr[$j] > $key) {
                 $arr[$j + 1] = $arr[$j];
                 $j--;
             }
             $arr[$j + 1] = $key;
         }
-        for ($i = 0; $i < $len; $i++) {
-            echo $arr[$i] . " ";
+        for ($index = 0; $index < $len; $index++) {
+            echo $arr[$index] . " ";
         }
         echo "\n";
         $stop = utility::stopTime();
@@ -665,13 +665,13 @@ class utility
         $start = utility::startTime();
         $arr = array();
         echo "enter element in string\n";
-        for ($i = 0; $i < $n; $i++) {
-            $arr[$i] = utility::getString();
+        for ($index = 0; $index < $n; $index++) {
+            $arr[$index] = utility::getString();
         }
         $len = sizeof($arr);
-        for ($i = 1; $i < $len; $i++) {
-            $key = $arr[$i];
-            $j = $i - 1;
+        for ($index = 1; $index < $len; $index++) {
+            $key = $arr[$index];
+            $j = $index - 1;
             while ($j >= 0) {
                 if (strcmp($key, $arr[$j]) < 0) {
                     break;
@@ -681,8 +681,8 @@ class utility
             }
             $arr[$j + 1] = $key;
         }
-        for ($i = 0; $i < $len; $i++) {
-            echo $arr[$i] . " ";
+        for ($index = 0; $index < $len; $index++) {
+            echo $arr[$index] . " ";
         }
         $stop = utility::stopTime();
         $elapsed = utility::elapsedTime($start, $stop);
@@ -697,21 +697,21 @@ class utility
         $start = utility::startTime();
         $arr = array();
         echo "enter element \n";
-        for ($i = 0; $i < $n; $i++) {
-            $arr[$i] = utility::getInt();
+        for ($index = 0; $index < $n; $index++) {
+            $arr[$index] = utility::getInt();
         }
         $len = sizeof($arr);
-        for ($i = 0; $i < $len; $i++) {
-            for ($j = $i + 1; $j < $len; $j++) {
-                if ($arr[$i] > $arr[$j]) {
-                    $temp = $arr[$i];
-                    $arr[$i] = $arr[$j];
+        for ($index = 0; $index < $len; $index++) {
+            for ($j = $index + 1; $j < $len; $j++) {
+                if ($arr[$index] > $arr[$j]) {
+                    $temp = $arr[$index];
+                    $arr[$index] = $arr[$j];
                     $arr[$j] = $temp;
                 }
             }
         }
-        for ($i = 0; $i < $len; $i++) {
-            echo $arr[$i] . " ";
+        for ($index = 0; $index < $len; $index++) {
+            echo $arr[$index] . " ";
         }
         $stop = utility::stopTime();
         $elapsed = utility::elapsedTime($start, $stop);
@@ -726,21 +726,21 @@ class utility
         $start = utility::startTime();
         $arr = array();
         echo "enter element in string\n";
-        for ($i = 0; $i < $n; $i++) {
-            $arr[$i] = utility::getStringArray();
+        for ($index = 0; $index < $n; $index++) {
+            $arr[$index] = utility::getStringArray();
         }
         $len = sizeof($arr);
-        for ($i = 0; $i < $len; $i++) {
-            for ($j = $i + 1; $j < $len; $j++) {
-                if (strcmp($arr[$i], $arr[$j]) > 0) {
-                    $temp = $arr[$i];
-                    $arr[$i] = $arr[$j];
+        for ($index = 0; $index < $len; $index++) {
+            for ($j = $index + 1; $j < $len; $j++) {
+                if (strcmp($arr[$index], $arr[$j]) > 0) {
+                    $temp = $arr[$index];
+                    $arr[$index] = $arr[$j];
                     $arr[$j] = $temp;
                 }
             }
         }
-        for ($i = 0; $i < $len; $i++) {
-            echo $arr[$i] . " ";
+        for ($index = 0; $index < $len; $index++) {
+            echo $arr[$index] . " ";
         }
         $stop = utility::stopTime();
         $elapsed = utility::elapsedTime($start, $stop);
@@ -778,7 +778,7 @@ class utility
     {
         $low = 0;
         $high = 1023;
-        for ($i = 0; $i < 100; $i++) {
+        for ($index = 0; $index < 100; $index++) {
             while ($low <= $high) {
                 $mid = round(($low + $high) / 2);
                 echo "If your no is bw " . $low . " and " . $mid . " press 1\n";

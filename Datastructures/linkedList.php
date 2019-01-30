@@ -55,7 +55,7 @@ class LinkedList
     public function isEmpty()
     {
         return $this->head == null;
-    }
+    } 
 
     /*
      * function to remove the data given as argument removes only if data is there

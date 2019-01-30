@@ -5,7 +5,6 @@
  *@version 2.0
  *Date 22/01/2019
  *****************************************************************************************************/
-
 /**
  * requried to get input from another class
  */
@@ -24,14 +23,12 @@ class unorderdList
         $filename = "word.txt";
         $list = new linkedList();
         $file = fopen($filename, "r") or die("unable to open the file");
-
         /**
          * returns the elements from a open file
          */
         $filstr = fgets($file);
         $filearr = explode(" ", $filstr);
         print_r($filearr);
-
         /**
          * adding to the list
          */
@@ -40,7 +37,6 @@ class unorderdList
         }
         echo " enter the element to search \n";
         $elements = utility::getString();
-
         /**
          * searching the elemnt in the list
          *(===) used for identical values and returns true

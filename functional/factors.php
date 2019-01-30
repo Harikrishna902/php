@@ -15,7 +15,7 @@ echo "enter the number: \n";
  * calling the function to get integer
  */
 $number = utility::getInt();
-echo "prime factors of a number are: \n";
+echo "prime factors of a number are: \n";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 /**.
  * calling the method to print the primefactors
  */

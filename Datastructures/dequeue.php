@@ -29,7 +29,7 @@ class Dequeue
     {
         $new_node = new Node($iteam);
         if ($this->isEmpty()) {
-            $this->tail = $new - node;
+            $this->tail = $new_node;
         } else {
             $this->head->prev = $new_node;
         }

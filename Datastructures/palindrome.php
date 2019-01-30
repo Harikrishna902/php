@@ -24,14 +24,14 @@ $deq = new dequeue;
  */
 echo "enter the string \n";
 $str = utility::getString();
-$str1 = str_split($str);
+$strOne = str_split($str);
 
 /**
  *adding from rear and displaying forward and
  *chacking simultaneously is they are same or not
  */
-for ($i = 0; $i < sizeof($str1); $i++) {
-    $deq->addRear($str1[$i]);
+for ($i = 0; $i < sizeof($strOne); $i++) {
+    $deq->addRear($strOne[$i]);
 }
 $deq->displayForward();
 echo "\n";
@@ -41,7 +41,7 @@ echo "reverse of a taken string \n";
 /**
  *removing from back
  */
-for ($i = 0; $i < sizeof($str1); $i++) {
+for ($i = 0; $i < sizeof($strOne); $i++) {
     $string = $string . $deq->removeRear();
 }
 echo $string . "\n";

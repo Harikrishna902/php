@@ -58,16 +58,28 @@ for ($j = 0; $j < sizeof($week); $j++) {
     echo $week[$j] . "\t";
 }
 echo "\n";
-
+/**
+ * printing dates
+ * -1 bcz months index number has to start from 0 not from 1
+ */
 for ($j = 1; $j <= $days[$m - 1]; $j++) {
     $stack->push($j);
 }
+/**
+ * poping the elemnets to get in a order manner
+ */
 for ($k = 0; $k < $stack->size(); $k++) {
     $stackOne->push($stack->pop());
 }
+/**
+ * for printing the spaces 
+ */
 for ($s = 0; $s < $d0; $s++) {
     echo "\t";
 }
+/**
+ * for printing the elements in next line
+ */
 for ($i = 0; $i < $stackOne->size(); $k++) {
     $val = $stackOne->peek();
     echo $stackOne->pop() . "\t";
@@ -77,3 +89,4 @@ for ($i = 0; $i < $stackOne->size(); $k++) {
 
 }
 echo "\n";
+ 

@@ -12,5 +12,3 @@ $arrayOne = array('1000', '500', '100', '50', '20', '10', '2', '1');
 echo " enter the amount \n";
 $money = utility::getInt();
 utility::calcnotes($arrayOne, $money);
-
-?>
