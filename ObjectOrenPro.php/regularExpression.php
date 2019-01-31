@@ -1,7 +1,7 @@
 <?php
 /******************************************************************************************
  *@filename:regularExpression.php
-@Desc:Read in the  message and replace with regex
+ *@Desc:Read in the  message and replace with regex
  *@authour harikrishna
  *@version 2.0
  *Date 30/01/2019
@@ -13,12 +13,12 @@ your contact number is 91-xxxxxxxxxx
 Please,let us know in case of any clarification Thank you \n BridgeLabz xx/xx/xxxx";
 echo "enter first name \n";
 $name = utility::getString();
-echo "enter full name \n";
+echo "enter full name \n"; 
 $fname = utility::getString();
 echo "enter mobile number \n";
 //$mobileNumber = utility::getInt();
 //validation for mobilenumber
-while(strlen($mobileNumber=utility::getInt()<10)) {
+while(strlen($mobileNumber=utility::getInt())<10) {
    echo "Enter correct Mobile number\n";
 }
 //replacing mobilenumber using regex
