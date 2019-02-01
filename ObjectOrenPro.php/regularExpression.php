@@ -23,7 +23,7 @@ while(strlen($mobileNumber=utility::getInt())<10) {
 }
 //replacing mobilenumber using regex
 $string = preg_replace("/\d{2}\-x+/", $mobileNumber, $string);
-//replacing <<name>> using regex
+//replacing <<name>> using regex    .                                                                                                                                                                                                                                                                                                                                                                                                 
 $string = preg_replace("/<+\w{4}>+/", $name, $string);
 //replacing <<fullname>> using regex
 $string = preg_replace("/<+\w+\s\w+>+/", " " . $fname, $string);
