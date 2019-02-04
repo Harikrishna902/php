@@ -29,4 +29,4 @@ $string = preg_replace("/<+\w{4}>+/", $name, $string);
 $string = preg_replace("/<+\w+\s\w+>+/", " " . $fname, $string);
 //replacing todays date with current date
 $string = preg_replace("/x*\/x*\/x*/", date("d/m/Y"), $string);
-echo "$string";
+echo "$string"."\n";

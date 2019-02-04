@@ -146,7 +146,6 @@ function ShowCards(queue $playerQue)
         echo "}\n\n";
     }
 }
-
 $ss = getDeck();
 $ss = playerDist($ss);
 ShowCards($ss);

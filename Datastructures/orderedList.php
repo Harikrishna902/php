@@ -30,6 +30,7 @@ class orderdList
          * converting  string to array
          */
         $filearr = explode(" ", $filstr);
+        sort($filearr);
         print_r($filearr);
 
         /**
