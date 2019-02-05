@@ -51,10 +51,10 @@ function buy($account)
     //list var to store the list the stock to purachase from
     $list = printStockList();
     //askins use rfor input
-    echo "Enter No with Stock To Buy : ";
+    echo "Enter slNo with Stock To Buy : ";
     //var ch to store stock to buy
     $ch = validInt(utility::getInt(), 1, 8);
-    echo $list[$ch - 1]->name . " selected!\nEnter No Of Shares To Buy of " . $list[$ch - 1]->name . " : ";
+    echo $list[$ch - 1]->name . " selected! \n Enter Number Of Shares To Buy of " . $list[$ch - 1]->name . " : ";
     //amnt to store the no of shares to buy
     $amnt = validInt(utility::getInt(), 0, $list[$ch - 1]->Quantity);
     if ($account[0]->account < ($list[$ch - 1]->price * $amnt)) {
@@ -100,7 +100,7 @@ function sell($account)
     echo "Enter slNo with Stock To Sell : ";
     //validating the input
     $ch = validInt(utility::getInt(), 1, count($account));
-    echo $account[$ch]->name . " selected!\nEnter No Of Shares To Sell of " . $account[$ch]->name . " : ";
+    echo $account[$ch]->name . " selected!\nEnter Number Of Shares To Sell of " . $account[$ch]->name . " : ";
     $qt = validInt(utility::getInt(), 1, $account[$ch]->quantity);
     //removing the stock
     $account[$ch]->quantity -= $qt;

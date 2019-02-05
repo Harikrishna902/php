@@ -1,12 +1,12 @@
 <?php
 /**
- *@fileNanme:stockReport.php
+ *@fileNanme:inventoryManagement.php
  *@Description:to read in Stock Names, Number of Share, Share Price.
  *Print a Stock Report with total value of each Stock and the total value of Stock.
  *Wheats with properties name, weight, price per kg.
  *@author harikrishna
  *@version 2.0
- *Date :5/01/2019
+ *Date :31/01/2019
  *********************************************************************************************/
 require 'utility.php';
 class Stock

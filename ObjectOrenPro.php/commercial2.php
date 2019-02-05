@@ -102,7 +102,7 @@ function buy($stockacc)
     $stock = new Stock($stock->name, $stock->price, $amnt);
     //adding the stock to the account if already in the list and return
     for ($i = 0; $i < count($account); $i++) {
-        if ($account[$i]->name == $stock->name) {
+        if ($account[$i]->name = $stock->name) {
             $account[$i]->quantity += $stock->quantity;
             echo "Bought $stock->quantity " . "$stock->name shares successfully";
             $stack[] = ($account[$ch - 1]->name . " bought");
