@@ -99,6 +99,7 @@ function edit(&$person)
 
 /**
  * Function to delete the object of person from the array
+ * & cts as refernce variable
  */
 function delete(&$arr)
 {
