@@ -12,10 +12,10 @@ require('bookBorrower.php');
 /**
  * top level exception handler function to handle exception
  */
-// set_exception_handler(function ($e) {
-//     echo "\nException Occurred\n";
-//     echo $e->getMessage();
-// });
+set_exception_handler(function ($e) {
+    echo "\nException Occurred\n";
+    echo $e->getMessage();
+});
 class Singleton{
     function main(){
         echo "Enter Author Name: \n";
@@ -30,21 +30,21 @@ class Singleton{
          //calling borrowBook function for first Object   
         $bookBorrowerOne->borrowBook($author,$title);          
         echo "BookBorrowerOne asked to borrow the book:\n";
-        echo "Author and Title: ";
-        echo $bookBorrowerOne->getAuthorAndtitle()."\n\n";
+        echo "Author and Title:  ";
+        echo $bookBorrowerOne->AuthorAndTitle()."\n\n";
          //calling borrowBook function for second Object
         $bookBorrowerTwo->borrowBook($author,$title);     
         echo "BookBorrowerTwo asked to borrow the book:\n";
-        echo "Author and Title: ";
-        echo $bookBorrowerOne->getAuthorAndtitle()."\n";
-        echo $bookBorrowerTwo->getAuthorAndtitle()."\n";
+        echo "Author and Title:  ";
+        echo $bookBorrowerOne->AuthorAndTitle()."\n";
+        echo $bookBorrowerTwo->AuthorAndTitle()."\n";
         //calling borrowBook function for first Object
         $bookBorrowerOne->returnBook();                    
         echo "BookBorrowerOne returned the book:\n";
          //calling borrowBook function for second Object
         $bookBorrowerTwo->borrowBook($author,$title);     
         echo "Author and Title: ";
-        echo $bookBorrowerOne->getAuthorAndtitle()."\n\n";
+        echo $bookBorrowerOne->AuthorAndTitle()."\n\n";
         echo "END TESTING SINGLETON PATTERN:\n";
     }
 }

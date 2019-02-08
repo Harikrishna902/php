@@ -7,6 +7,13 @@
  *@version 1.0
  *Date: 7/02/2019
  *********************************************************************************************/
+/**
+ * top level exception handler function to handle exception
+ */
+set_exception_handler(function ($e) {
+    echo "\nException Occurred\n";
+    echo $e->getMessage();
+});
 class Laptop
 {
     //holds the name of an item
@@ -32,7 +39,7 @@ class Laptop
         return $this->brand;
     }
     /**
-     * this function returns the ip address of an item
+     * this function returns the size of harddisk
      */
     public function hardDisk()
     {

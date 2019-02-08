@@ -7,22 +7,32 @@
  *@version 1.0
  *Date: 7/02/2019
  *********************************************************************************************/
-class Laptop
+/**
+ * top level exception handler function to handle exception
+ */
+set_exception_handler(function ($e) {
+    echo "\nException Occurred\n";
+    echo $e->getMessage();
+});
+class pc
 {
     //holds the name of an item
     public $brand;
-    //holds the ip address of an item
+    //holds the size of harddisk
     public $hardDisk;
-    //holds the brand name of an item
+    //holds the size of ram
     public $Ram;
+    //holds the version of windows used
+    public $windows;
     /**
      * function for laptop to perform their operation
      */
-    public function laptop($brand, $hardDisk, $Ram)
+    public function pc($brand, $hardDisk, $Ram,$windows)
     {
         $this->brand = $brand;
         $this->hardDisk = $hardDisk;
         $this->Ram = $Ram;
+        $this->windows=$windows;
     }
     /**
      * this function returns the name of an item
@@ -32,17 +42,24 @@ class Laptop
         return $this->brand;
     }
     /**
-     * this function returns the ip address of an item
+     * this function returns the size of harddisk
      */
     public function hardDisk()
     {
         return $this->hardDisk;
     }
     /**
-     * this function returns the brand name of an item
+     * this function returns size of ram
      */
     public function Ram()
     {
         return $this->Ram;
+    }
+    /**
+     * function returns the windows version
+     */
+    public function windows()
+    {
+        return $this->windows;
     }
 }

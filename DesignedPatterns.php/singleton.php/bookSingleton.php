@@ -9,10 +9,10 @@
 /**
  * top level exception handler function to handle exception
  */
-// set_exception_handler(function ($e) {
-//     echo "\nException Occurred\n";
-//     echo $e->getMessage();
-// });
+set_exception_handler(function ($e) {
+    echo "\nException Occurred\n";
+    echo $e->getMessage();
+});
 //require 'utilty.php';
 class BookSingleton
 {
@@ -69,6 +69,6 @@ class BookSingleton
      */
     public function getAuthorAndtitle()
     {
-        return $this->getTitle() .'by'. $this->getAuthor();
+        return $this->getTitle() . ' by '. $this->getAuthor();
     }
 }

@@ -9,10 +9,10 @@
 /**
  * top level exception handler function to handle exception
  */
-// set_exception_handler(function ($e) {
-//     echo "\nException Occurred\n";
-//     echo $e->getMessage();
-// });
+set_exception_handler(function ($e) {
+    echo "\nException Occurred\n";
+    echo $e->getMessage();
+});
 require 'bookSingleton.php';
 class bookBorrower
 {
@@ -31,7 +31,7 @@ class bookBorrower
     public function AuthorAndTitle()
     {
         if (true == $this->haveBook) {
-            return $this->borrowedBook->getAuthorAndTile();
+            return $this->borrowedBook->getAuthorAndtitle();
 
         } else {
             return "I dont have the book";
