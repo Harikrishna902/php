@@ -23,6 +23,9 @@ class Server {
     public $loc;  
     /**
      * function for Server to perform their operation
+     * @param name
+     * @param ip
+     * @param loc
      */
     public function server($name,$IP,$loc){
         $this->name = $name;
@@ -31,18 +34,21 @@ class Server {
     }
     /**
      * this function returns the name of an item
+     * @return name
      */
     function name(){
         return $this->name;
     }
      /**
      * this function returns the ip address of an item
+     * @return ip 
      */
     function IP(){
         return $this->IP;
     }
      /**
      * this function returns the location of an item
+     * @return loc
      */
     function loc(){
         return $this->loc;

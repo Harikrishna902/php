@@ -26,6 +26,10 @@ class pc
     public $windows;
     /**
      * function for laptop to perform their operation
+     * @param brand
+     * @param harddisk
+     * @param ram
+     * @param windows 
      */
     public function pc($brand, $hardDisk, $Ram,$windows)
     {
@@ -36,6 +40,7 @@ class pc
     }
     /**
      * this function returns the name of an item
+     * @return brand
      */
     public function brand()
     {
@@ -43,6 +48,7 @@ class pc
     }
     /**
      * this function returns the size of harddisk
+     * @return harddisk
      */
     public function hardDisk()
     {
@@ -50,6 +56,7 @@ class pc
     }
     /**
      * this function returns size of ram
+     * @return ram
      */
     public function Ram()
     {
@@ -57,6 +64,7 @@ class pc
     }
     /**
      * function returns the windows version
+     * @return windows
      */
     public function windows()
     {

@@ -2,10 +2,9 @@
 /**
  *@fileName:adapter.php
  *@Desc:implementing adapter design pattern by taking to create a mobileCharging as example
- *that can Produce PC, Laptop and Server Class Computers
  *@author harikrishna
  *@version 1.0
- *Date: 7/02/2019
+ *Date: 8/02/2019
  *********************************************************************************************/
 /**
  * top level exception handler function to handle exception
@@ -36,14 +35,14 @@ class socketAdapter extends socket implements adapter
      */
     public function get3volts()
     {
-        return $this->getvolts() / 40;
+        return $this->getvolts() /40;
     }
     /**
      * method overridden to give 12 volts
      */
     public function get12volts()
     {
-        return $this->getvolts() / 10;
+        return $this->getvolts() /10;
     }
 
 }

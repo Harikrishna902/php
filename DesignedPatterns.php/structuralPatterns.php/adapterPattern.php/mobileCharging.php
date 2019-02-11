@@ -1,11 +1,10 @@
 <?php
 /**
- *@fileName:adapter.php
+ *@fileName:mobilecharging.php
  *@Desc:implementing adapter design pattern by taking to create a mobileCharging as example
- *that can Produce PC, Laptop and Server Class Computers
  *@author harikrishna
  *@version 1.0
- *Date: 7/02/2019
+ *Date: 8/02/2019
  *********************************************************************************************/
 /**
  * top level exception handler function to handle exception
@@ -38,7 +37,7 @@ class Mobile
     public function charge(int $volt)
     {
         /**
-         * charge the mobile if voltage   same the required charging voltage
+         * charge the mobile if voltage and the required volts for  charging are same
          * else does not charge
          */
         if ($this->cvolt == $volt) {
@@ -57,5 +56,3 @@ $adapter = new socketAdapter();
 //give apropriate voltage
 $volt = $adapter->get3Volts();
 $mob->charge($volt);
-?>
-

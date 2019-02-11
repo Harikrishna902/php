@@ -27,7 +27,9 @@ class bookBorrower
         $this->author = $author;
         $this->title = $title;
     }
-
+    /**
+     * function to get authour and title
+     */
     public function AuthorAndTitle()
     {
         if (true == $this->haveBook) {
@@ -37,6 +39,12 @@ class bookBorrower
             return "I dont have the book";
         }
     }
+
+    /**
+     * function to borrowbook
+     * @param author
+     * @param title
+     */
     public function borrowBook($author,$title)
     {
         $this->borrowedBook = bookSingleton::borrowBook($author,$title);
@@ -46,6 +54,10 @@ class bookBorrower
             $this->haveBook = true;
         }
     }
+
+    /**
+     * function to returnbook
+     */
     public function returnBook()
     {
         $this->borrowedBook->returnBook($this->borrowedBook);

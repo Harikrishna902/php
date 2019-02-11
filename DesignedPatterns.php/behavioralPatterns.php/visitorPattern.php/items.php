@@ -1,11 +1,12 @@
 <?php
 /**
- *@fileName:socket.php
- *@Desc:implementing adapter design pattern by taking to create a mobileCharging as example
+ *@fileName:items.php
+ *@Desc:implementing Behavioral design pattern by taking shopping cart  as example
  *@author harikrishna
  *@version 1.0
- *Date: 8/02/2019
+ *Date: 11/02/2019
  *********************************************************************************************/
+require('visitor.php');
 /**
  * top level exception handler function to handle exception
  */
@@ -13,14 +14,8 @@ set_exception_handler(function ($e) {
     echo "\nException Occurred\n";
     echo $e->getMessage();
 });
-/**
- * class socket to act as the class with 1 method
- */
-class socket
+interface Items
 {
-    function getVolts()
-    {
-        return 120 ;
-    }
+    //dependency injection of visitor
+    public function accept(cartVisitor $visitor);
 }
-?>
