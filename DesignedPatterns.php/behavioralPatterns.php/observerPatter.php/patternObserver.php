@@ -1,7 +1,7 @@
 <?php
 /**
- * filename:facade.php
- *Program to create Facade Design Pattern by taking Restaurant as example
+ * filename:patternObserver.php
+ *Program to create observer Design Pattern by taking cricketpalyers in sqaud as example
  *@version 1.0
  *@author harikrishna
  *@since 12-01-2019

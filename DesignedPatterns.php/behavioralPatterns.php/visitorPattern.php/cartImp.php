@@ -26,7 +26,7 @@ class cartImp implements cartVisitor
      * function to visit book
      * @param price
      * @param name
-     * @param quantityu
+     * @param quantity
      */
     public function visitBook(Book $element)
     {

@@ -1,10 +1,10 @@
 <?php
 /**
- * filename:facade.php
- *Program to create Facade Design Pattern by taking Restaurant as example
+ *filename:observer.php
+ *Program to create observer Design Pattern by taking cricketpalyers in sqaud as example
  *@version 1.0
  *@author harikrishna
- *@since 11-01-2019
+ *@since 12-01-2019
  ****************************************************************************************************/
 /**
  * top level exception handler function to handle exception

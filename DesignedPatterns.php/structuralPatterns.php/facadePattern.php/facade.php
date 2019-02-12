@@ -1,9 +1,10 @@
 <?php
 /**
+ *filename:facade.php
  *Program to create Facade Design Pattern by taking Restaurant as example
- *
- * @author harikrishna
- * @since 11-01-2019
+ *@version 1.0
+ *@author harikrishna
+ *@since 11-01-2019
  ****************************************************************************************************/
 /**
  * top level exception handler function to handle exception
@@ -19,7 +20,7 @@ require '/home/admin1/workspace/Harikrishna/DesignedPatterns.php/utility.php';
 interface Hotel
 {
 //abstract function of interface class
-public function getMenus();
+    public function getMenus();
 }
 //creating class NonVegMenu so that it can be used by NonVegRestaurant class
 class NonVegMenu

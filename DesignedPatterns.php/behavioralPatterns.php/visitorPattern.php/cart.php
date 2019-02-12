@@ -17,6 +17,10 @@ set_exception_handler(function ($e) {
     echo "\nException Occurred\n";
     echo $e->getMessage();
 });
+/**
+ * function clinetcode 
+ * using depedency injection
+ */
 function clientCode(array $components, cartVisitor $visitor)
 {
     foreach ($components as $component) {
