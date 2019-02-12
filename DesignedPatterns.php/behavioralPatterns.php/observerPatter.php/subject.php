@@ -13,6 +13,10 @@ set_exception_handler(function ($e) {
     echo "\nException Occurred\n";
     echo $e->getMessage();
 });
+/**
+ * abstract class with functions attach,detach,notify
+ * and using dependecy injection of AbstractObserver
+ */
 abstract class AbstractSubject
 {
     abstract public function attach(AbstractObserver $observer_in);

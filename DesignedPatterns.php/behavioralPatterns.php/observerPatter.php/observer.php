@@ -14,6 +14,9 @@ set_exception_handler(function ($e) {
     echo $e->getMessage();
 });
 
+/**
+ * abstract class with  function update
+ */
 abstract class AbstractObserver
 {
     abstract public function update(AbstractSubject $subject_in);
