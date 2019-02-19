@@ -49,7 +49,7 @@ class Mobile
 }
 echo "Enter Volts:";
 $vol = utility::getInt();
-//new mobile ogject
+//new mobile object
 $mob = new Mobile($vol);
 //new adapter
 $adapter = new socketAdapter();

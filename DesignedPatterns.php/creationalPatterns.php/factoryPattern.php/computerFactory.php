@@ -55,9 +55,11 @@ function main(){
     echo "Press\n1.Laptop\n2.Server\n3.PC \n";
     $obj = $f->getInfo(utility::getInt());
     $ref = new ReflectionClass($obj);
-    print_r(get_class_methods($ref),true);
+   // print_r($ref);
+    //print_r($ref->get_class_methods($ref),true);
     //echo "Properties Name:\n";
     $dfdf = $ref->getProperties() ;
+    //print_r($dfdf);
     foreach($ref->getProperties() as $key){
         echo $key->getName()."->".$key->getValue($obj)."\n";
     } 

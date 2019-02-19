@@ -21,7 +21,9 @@ class PatternObserver extends AbstractObserver
 {
    // intilisation of constructor
     public function __construct()
-    {}
+    {
+      
+    }
 /**
  * function to update the data 
  * generlisation (dependecy injection)

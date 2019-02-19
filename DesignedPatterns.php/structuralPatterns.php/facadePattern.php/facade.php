@@ -39,8 +39,7 @@ class NonVegRestaurant implements Hotel
 {
     /**
      *Creating function getMenus to get the menu of that particular restaurant
-     *@param nothing
-     *@return nonVegMenu is returned
+     *@return nonVegMenu 
      */
     public function getMenus()
     {
@@ -55,8 +54,7 @@ class VegRestaurant implements Hotel
 {
     /**
      *Creating function getMenus to get the menu of that particular restaurant
-     *@param nothing
-     *@return vegMenu is returned
+     *@return vegMenu 
      */
     public function getMenus()
     {
@@ -87,8 +85,6 @@ class HotelKeeper
 {
     /**
      *Creating function getVegMenu to get the menu of that particular restaurant
-     *@param nothing
-     *@return nothing
      */
     public function getVegMenu()
     {
@@ -96,12 +92,10 @@ class HotelKeeper
         $vegRestaurant = new VegRestaurant();
         // calling getMenus function of VegRestaurant class on vegRestaurant object
         $vegMenu = $vegRestaurant->getMenus();
-        echo "Here Sir, veg menu of Raj Bhavan Veg Restaurant \n ";
+        echo "Here Sir, veg menu of paradise Restaurant \n ";
     }
     /**
      *Creating function getNonVegMenu to get the menu of that particular restaurant
-     *@param nothing
-     *@return nothing
      */
     public function getNonVegMenu()
     {
@@ -109,7 +103,7 @@ class HotelKeeper
         $nonVegRestaurant = new NonVegRestaurant();
         // calling getMenus function of NonVegRestaurant class on NonVegRestaurant object
         $nonvegMenu = $nonVegRestaurant->getMenus();
-        echo "Here Sir, Non veg menu of Raj Bhavan Non Veg Restaurant\n ";
+        echo "Here Sir, Non-veg menu of paradise Restaurant\n ";
     }
     /**
      *Creating function getVegNonMenu to get the menu of that particular restaurant
@@ -122,7 +116,7 @@ class HotelKeeper
         $vegNonBothRestaurant = new VegNNonVegBothRestaurant();
         // calling getMenus function of VegNNonVegBothRestaurant class on vegNonBothRestaurant object
         $bothMenu = $vegNonBothRestaurant->getMenus();
-        echo "Here Sir, Both veg and non veg menu of Raj Bhavan Veg/Non Veg Restaurant\n ";
+        echo "Here Sir, Both veg and non veg menu of paradise Veg/Non Veg Restaurant\n ";
     }
 }
 //creating clent class for testing Facade Design pattern
@@ -130,8 +124,6 @@ class Client
 {
     /**
      *Creating function customerFacing to know how the facade design pattern works
-     *@param nothing
-     *@return nothing
      */
     public function customerFacing()
     {
@@ -184,11 +176,13 @@ class Client
             }
         } catch (Exception $e) {
             echo "\n", $e->getMessage();
-        } finally {
+        }
+    
+         finally {
             echo ("------------END TESTING FACADE PATTERN----------------\n");
             echo ("\n");
         }
-    }
+    }   
 }
 //creating new client object
 $client = new Client();

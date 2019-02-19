@@ -23,26 +23,34 @@ class Singleton{
         echo "Enter Title Name: \n";
         $title = utility::getString();
         echo "BEGIN TESTING SINGLETON PATTERN:\n\n";
+
         //Creating new object for Book BorrowerOne
         $bookBorrowerOne = new bookBorrower($author,$title); 
+
         //Creating new object for Book BorrowerTwo 
-        $bookBorrowerTwo = new bookBorrower($author,$title); 
+        $bookBorrowerTwo = new bookBorrower($author,$title);
+
          //calling borrowBook function for first Object   
-        $bookBorrowerOne->borrowBook($author,$title);          
+        $bookBorrowerOne->borrowBook($author,$title);  
+
         echo "BookBorrowerOne asked to borrow the book:\n";
         echo "Author and Title:  ";
         echo $bookBorrowerOne->AuthorAndTitle()."\n\n";
+        
          //calling borrowBook function for second Object
-        $bookBorrowerTwo->borrowBook($author,$title);     
+        $bookBorrowerTwo->borrowBook($author,$title);  
+
         echo "BookBorrowerTwo asked to borrow the book:\n";
         echo "Author and Title:  ";
         echo $bookBorrowerOne->AuthorAndTitle()."\n";
         echo $bookBorrowerTwo->AuthorAndTitle()."\n";
         //calling borrowBook function for first Object
-        $bookBorrowerOne->returnBook();                    
+        $bookBorrowerOne->returnBook();      
+
         echo "BookBorrowerOne returned the book:\n";
          //calling borrowBook function for second Object
-        $bookBorrowerTwo->borrowBook($author,$title);     
+        $bookBorrowerTwo->borrowBook($author,$title);  
+
         echo "Author and Title: ";
         echo $bookBorrowerOne->AuthorAndTitle()."\n\n";
         echo "END TESTING SINGLETON PATTERN:\n";
