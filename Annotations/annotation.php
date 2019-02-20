@@ -35,7 +35,6 @@ class AnnotationDemo
 }
 // Lets parse the annotations
 use Doctrine\Common\Annotations\AnnotationReader;
-
 $annotationReader = new AnnotationReader();
 //Get class annotation
 $reflectionClass = new ReflectionClass('AnnotationDemo');

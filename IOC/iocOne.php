@@ -14,12 +14,14 @@ set_exception_handler(function ($e) {
     echo $e->getMessage();
 });
 /**
- * class part aact as a part of class
+ * class part act as a part of class
  */
 class Part
 {
 }
-
+/**
+ * class engine act as engine of car
+ */
 class Engine
 {
     protected $part;
@@ -28,7 +30,10 @@ class Engine
         $this->part = $part;
     }
 }
-
+/**
+ * class car with 
+ * @param engine
+ */
 class Car
 {
     protected $engine;
@@ -36,12 +41,17 @@ class Car
     {
         $this->engine = $engine;
     }
-
+/**
+ * function to run the car
+ */
     public function run()
     {
         echo "vrooom vroom \n";
     }
 }
+/**
+ * class container 
+ */
 
 class Container
 {
@@ -55,7 +65,10 @@ class Container
             static::$deps[strtolower($key)] = $closure;
         }
     }
-
+     /**
+      *function to getInstance
+      *using dependency
+      */
     public static function getInstance(string $classname)
     {
         if (array_key_exists(strtolower($classname), static::$deps)) {
@@ -64,7 +77,9 @@ class Container
             throw new Exception("Class Not Found\n add dependency first \n");
         }
     }
-
+    /**
+     * function to addDependency
+     */
     public static function addDependency(string $classname, closure $closure)
     {
 
@@ -75,5 +90,8 @@ class Container
 Container::init();
 $deb = include "dep.php";
 $car = Container::getInstance("car");
+/**
+ * calling the run function
+ */
 $car->run();
 //print_r($car);
